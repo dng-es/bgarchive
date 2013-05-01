@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+
+.pageslist {margin:10px 0px 0px 0px; vertical-align: middle;color: #D31B33;font-size: 12px;padding:5px; display:inline-table; overflow:hidden;float: left}
+.pageslist a:active { left:1px; position:relative; top:1px;}
+.pageslist a.selected, .pageslist span.selected, .pageslist a:active {
+	background-color:#AA5D5B;
+	background-position:left bottom;
+	background-repeat:repeat-x;
+	border-color: #900;
+	color: #FFF;
+}
+.pageslist .disabled {color:#D31B33; background: #ccc}
+.pageslist .messages {border: 0px; background-color: transparent; color: #D31B33; font-size: 11px;}
+.pageslist a, .pageslist span {
+	background-color:#FFFFFF;
+	border:1px solid #AA5D5B;
+	color:#AA5D5B;
+	display:block;
+	float:left;
+	font-size:10px;
+	font-weight:bold;
+	margin:0 5px 0 0;
+	padding:3px 5px 3px 5px;
+	text-decoration:none;
+	overflow: visible;
+}
+/*Search form*/
+.search-form {
+	float:left;vertical-align: bottom; font-weight: bold;
+}

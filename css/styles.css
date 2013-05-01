@@ -1,0 +1,102 @@
+/*RESET CSS*/
+	html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed,figure, figcaption, footer, header, hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, 
+	video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block}
+	body {line-height: 1;font-family: questrialregular,Arial, Verdana;font-size:12px;margin-top:0;background:#fff;}
+	ol, ul {list-style: none}
+	blockquote, q {quotes: none}
+	blockquote:before, blockquote:after,
+	q:before, q:after {content: '';content: none;}
+	table {border-collapse: collapse;border-spacing:0}
+
+	body{margin: 0;font-family: Arial, Verdana;background: #111;color: #fff}
+	a{color:#FB873A;text-decoration: none}
+	header{background: #000;color:#fff;padding: 10px 20px;height: 40px;position: fixed;top: 0;left: 0;width: 100%;border-bottom:1px solid #555;}
+	footer{background: #000;color:#FB873A;padding: 5px 2%;position: fixed;bottom: 0;left: 0;width: 96%;text-align: right;border-top:1px solid #555;text-shadow:1px 1px 1px #333;}
+	h1{font-size: 28px;margin: 10px 0px;font-weight: bold;text-shadow:1px 1px 1px #000;}
+	h2{font-size: 16px;margin: 10px 0px;font-weight: bold;}
+	#page-wrapper{width: 90%;padding:1%;background:#222;overflow: hidden;margin: 0 4%}
+	.container{width:48%;float: left;display: inline-block;margin:  70px 1% 40px 1%}
+	#container1{overflow:none;}
+	#container1-files{height: 400px;padding:0;margin:0;width: 99%;outline:none;}
+	#container2{}
+	#bg-color-change{position: absolute; top:57px;right: 20px;width: 30px;height: 30px;border: 1px solid #f0f0f0;
+box-shadow:0 0 20px #000;
+   -webkit-box-shadow: 0 0 20px #000;
+   -moz-box-shadow: 0 0 20px #000;
+	}
+	.box{background:#000;border: 1px solid #555;border-radius: 4px;margin-bottom:15px;position: relative;}
+	.box p{margin: 0 0 10px 0;color: #999}
+	.box-content{padding: 10px}
+	.box-legend{background: #666;
+	/* Safari 4-5, Chrome 1-9 */
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+   from(#000000), to(#666666));
+/* Safari 5.1+, Chrome 10+ */
+background: -webkit-linear-gradient(top, #666666, #000000);
+/* Firefox 3.6+ */
+background: -moz-linear-gradient(top, #666666, #000000);
+/* Opera 11.10+ */
+background: -o-linear-background(top, #666666, #000000);
+/* IE 10 */
+background: -ms-linear-background(top, #666666, #000000);
+/* estándar */
+background: linear-background(top, #666666, #000000);
+	padding:8px 10px 10px 10px;color:#fff;text-shadow:1px 1px 1px #000;font-size: 16px}
+	#container2-bg{background: #fff;height: 330px;margin:10px 0 0 0;}
+	#container2-legend{margin:0;padding: 10px;background:#444;border:1px solid #ccc;border-radius: 3px;color:#fff;text-shadow:1px 1px 1px #000;}
+	.bg-pattern{display: inline-block;padding: 2px 4px;width: 40px;height:40px;margin:3px;border: 3px solid #444;background:#fff;}
+	.bg-pattern-selected{border-color:#FB873A;color:#000;}
+	.app-text{background:#ccc;border: 1px solid #ccc;border-radius: 4px;color:#666;padding:3px 5px;font-size: 16px;margin:0 10px 0 0}
+	.app-button{display:inline-block;border: 1px solid #822F02;border-radius: 4px;color:#000;font-size:16px;text-shadow:1px 1px 1px #ccc;padding:3px 10px;margin:0;cursor:pointer;background:#ffcc00;
+	/* Safari 4-5, Chrome 1-9 */
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+   from(#F86205), to(#ffcc00));
+/* Safari 5.1+, Chrome 10+ */
+background: -webkit-linear-gradient(top, #ffcc00, #F86205);
+/* Firefox 3.6+ */
+background: -moz-linear-gradient(top, #ffcc00, #F86205);
+/* Opera 11.10+ */
+background: -o-linear-background(top, #ffcc00, #F86205);
+/* IE 10 */
+background: -ms-linear-background(top, #ffcc00, #F86205);
+/* estándar */
+background: linear-background(top, #ffcc00, #F86205);}
+	.app-button:hover{
+	/* Safari 4-5, Chrome 1-9 */
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+   from(#ffcc00), to(#F86205));
+/* Safari 5.1+, Chrome 10+ */
+background: -webkit-linear-gradient(top, #F86205, #ffcc00);
+/* Firefox 3.6+ */
+background: -moz-linear-gradient(top, #F86205, #ffcc00);
+/* Opera 11.10+ */
+background: -o-linear-background(top, #F86205, #ffcc00);
+/* IE 10 */
+background: -ms-linear-background(top, #F86205, #ffcc00);
+/* estándar */
+background: linear-background(top, #F86205, #ffcc00);}
+.app-download{margin-bottom: 10px}
+.deg01{
+		/* Safari 4-5, Chrome 1-9 */
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+   from(#F86205), to(#ffcc00));
+/* Safari 5.1+, Chrome 10+ */
+background: -webkit-linear-gradient(top, #ffcc00, #F86205);
+/* Firefox 3.6+ */
+background: -moz-linear-gradient(top, #ffcc00, #F86205);
+/* Opera 11.10+ */
+background: -o-linear-background(top, #ffcc00, #F86205);
+/* IE 10 */
+background: -ms-linear-background(top, #ffcc00, #F86205);
+/* estándar */
+background: linear-background(top, #ffcc00, #F86205);
+}
+#search-reset{margin-left: 10px}
+.tags-cloud {margin-right: 5px;color: #FB873A;}
+.tags-cloud1{font-size: 11px}
+.tags-cloud2{font-size: 12px}
+.tags-cloud3{font-size: 18px}
+.tags-cloud4{font-size: 24px}
+.tags-cloud5{font-size: 32px}

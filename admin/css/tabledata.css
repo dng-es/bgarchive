@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+.DivData 
+{
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  margin: 0px 0px 20px 0px;
+  padding: 10px 15px 15px 15px;
+  -moz-border-radius: 11px 11px 11px 11px;
+}
+
+.TableData
+{
+  border: 1px solid #333;
+  font-size: 13px;
+  color: #415a04;
+  background-color: #FFF;
+  width: 100%;
+}
+
+.TableData th
+{
+  background: #333;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 5px;
+  height: 36px;
+  text-align: left;
+}
+.TableData img
+{
+	border: 0;
+	cursor: pointer;
+	padding: 2px;
+}
+.TableRow{
+	height: 24px;
+	background-color: #f0f0f0;
+}
+.TableRow:hover{background-color: #EFDADD; cursor: pointer; color: #900}
+
+.TableRow2{
+	height: 25px;
+	background-color: #fff;
+}
+.TableRow2:hover{background-color: #EFDADD; cursor: pointer; color: #900}
