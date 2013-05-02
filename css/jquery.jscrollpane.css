@@ -55,14 +55,14 @@
 
 .jspTrack
 {
-	background: #dfdfdf;
+	background: #555;
 	position: relative;
 	border: 0px solid #dfdfdf;
 }
 
 .jspDrag
 {
-	background: #949494;
+	background: #222;
 	position: relative;
 	top: 0;
 	left: 0;
@@ -121,22 +121,18 @@
 }
 
 .jspArrowUp {
-	border-bottom: 1px solid #ff6655;
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
+	border-bottom: 1px solid #000;
 	background: url(../images/up.gif) !important;
-	background-color: #fb873a !important;
+	background-color: #222 !important;
 	background-repeat: no-repeat !important;
 	background-position: 3px 4px !important;
 }
 .jspCap a { color: #FF6600 !important;}
 
 .jspArrowDown {
-	border-top: 1px solid #ff6655;
-	border-bottom-left-radius: 8px;
-	border-bottom-right-radius: 8px;	
+	border-top: 1px solid #000;	
 	background: url(../images/down.gif) !important;
-	background-color: #fb873a !important;
+	background-color: #222 !important;
 	background-repeat: no-repeat !important;
 	background-position: 3px 2px !important;
 }

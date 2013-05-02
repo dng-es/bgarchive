@@ -10,7 +10,7 @@ host = "localhost"
 user = "root"
 
 ;PASSWORD BBDD
-pass = ""
+pass = "AdminImagar"
 
 ;BBDD
 db = "bgarchive"

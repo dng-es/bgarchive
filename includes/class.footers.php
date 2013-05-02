@@ -4,7 +4,7 @@ class footers{
 	{
 ?>
 	</div>
-	<footer>DaSoftware - da bgArchive2012</footer>
+	<footer>DaSoftware - da bgArchive 2012-<?php echo date("Y");?></footer>
 	</body>
 </html>
 <?php	}

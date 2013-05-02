@@ -1,11 +1,18 @@
 $(document).ready(function(){
-  
-  bgColorChange();
-  bgImageChange($(".bg-pattern:first"));
 
-  $(".bg-pattern").click(function(e){
-    e.preventDefault();
-    bgImageChange($(this));
+  $("#cpicker-bg").dacolorpicker({idDestino: "bg-def"});
+  
+  resizePanels();
+  loadBackgrounds("")
+  bgColorChange();
+  
+
+  $(window).resize(function() {
+    resizePanels();
+  });
+
+  $(".box-legend").click(function(){
+    $(this).next(".box-content").slideToggle();
   });
 
   $("#bg-change").click(function(e){
@@ -17,25 +24,28 @@ $(document).ready(function(){
         e.preventDefault();
         bgColorChange();} 
   }); 
+
+  function resizePanels(){
+    var wheight = $(document).height(),
+        wwidth = $(document).width(); 
+    $("#container1").css("height",wheight-24);
+    $("#container2").css({"height":wheight-29,"width":wwidth-330});
+  }
   function bgColorChange(){
     var bgColor = $("#bg-def").val();
     $("#bg-color-change").css("background-color",bgColor);
     $("#container2-bg").css("background-color",bgColor);
   }    
 
-  function bgImageChange(pattern){
-    $(".bg-pattern").removeClass("bg-pattern-selected");
-    pattern.addClass("bg-pattern-selected");
-    var bg_id = pattern.attr("data-id");
-    var bg_name = pattern.attr("data-n");
-    var bg_size = pattern.attr("data-s");
-    var bg_format = pattern.attr("data-f");
-    var bg_downloads = pattern.attr("data-d");
-    var bg_tags = pattern.attr("data-t");
-    var bg_license = pattern.attr("data-l");
-    $("#container2-bg").css("background-image","url(data/patterns/"+bg_name+")");
-    $("#container2-legend").html("<a class='app-button app-download' href='?page=home&d=" + bg_name + "&e=" + bg_id + "'>download file</a> (" + bg_size + ")<br />Format: " + bg_format + "<br />Downloads: " + bg_downloads + "<br />License: " + bg_license + "<br />Tags: " + bg_tags);
-  }  
+
+
+  $("#app-download").click(function(){
+    var cont = parseInt($("#file-downs").html()) + 1,
+        elem = '#' + $(this).attr("data-id");
+    $(elem).attr("data-d",cont);
+    $("#file-downs").html(cont);  
+  });
+  
 
   /*search functions*/
   $("#search-button").click(function(){
@@ -50,9 +60,29 @@ $(document).ready(function(){
 
   function launchSearch(){
     if (jQuery.trim($("#search-text").attr("value"))!=""){
-      $("#search-form").submit();
+      var f_tag = jQuery.trim($("#search-text").attr("value"));
+      loadBackgrounds(f_tag);
+      return false;
     }
     return false;
   }
+
+  $(".tags-cloud").click(function(e){
+    e.preventDefault();
+    var f_tag = $(this).attr("data-f");
+    loadBackgrounds(f_tag);    
+  });
+
+  $("#search-reset").click(function(e){
+    e.preventDefault();
+    loadBackgrounds("");    
+  });
+
+  function loadBackgrounds(ftag){
+    $("#bg-loading").show();
+    $("#container1-files").load("collection.php",{"ftag":ftag},function(){
+        $("#bg-loading").hide();
+      })
+    }
 
 });
