@@ -12,6 +12,8 @@ function PageHeader($Subject,$Key_Words){
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <TITLE>bgArchive</TITLE>
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="icon" type="image/ico"  href="favicon.ico" > 
       <LINK rel="stylesheet" type="text/css" href="css/styles.css" />
       <LINK rel="stylesheet" type="text/css" href="css/jquery.dacolorpicker.css" />
       <LINK rel="stylesheet" type="text/css" href="css/bgarchive/jquery-ui-1.10.2.custom.min.css" />

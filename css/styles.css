@@ -26,7 +26,7 @@ header{background: #000;color:#fff;padding: 10px 20px;height: 40px;position: rel
 footer{background: #111;color:#fff;padding: 5px 2% 5px 5px;position: fixed;bottom: 0;left: 0;width: 96%;text-align: right;border-top:1px solid #222;}
 #footer-left{float:left;}
 #footer-right{float:right;color:#f0f0f0;}
-h1{font-size: 28px;margin: 10px 0px;font-weight: bold;text-shadow:2px 2px 2px #000;color:#777;}
+h1{background: url(../images/sprite.png) no-repeat;background-position: 0 -20px;padding: 10px 0 0 70px;height:54px;font-size: 28px;margin: 10px 0px;font-weight: bold;text-shadow:2px 2px 2px #000;color:#777;}
 h1 span {font-size: 12px;color:#999;}
 h2{font-size: 16px;margin: 10px 0px;font-weight: bold;}
 #page-wrapper{padding:0;background:#222;overflow: hidden;margin: 0}
@@ -39,7 +39,8 @@ h2{font-size: 16px;margin: 10px 0px;font-weight: bold;}
 .container2-legend-info{float: left;display: inline-block;width: 110px;overflow: hidden;position: relative;position: relative;}
 .container2-legend-info2{width: 300px}
 .container2-legend-info-title{color:#ccc;}
-#bg-loading{position: relative;top:90px;left:120px;}
+#bg-loading{position: relative;top:60px;left:90px;}
+#bg-loading-img{margin: 0 0 0 30px}
 #bg-color-change{position: absolute; top:20px;right: 20px;width: 30px;height: 30px; border: 1px solid #666;
 	box-shadow:0 0 20px #000;
    -webkit-box-shadow: 0 0 20px #000;
@@ -63,7 +64,7 @@ h2{font-size: 16px;margin: 10px 0px;font-weight: bold;}
 	/* estándar */
 	background-image: linear-gradient(top, #444444, #111111);
 	cursor:pointer;padding:0;color:#f0f0f0;text-shadow:2px 2px 2px #000;font-size: 14px}
-.box-legend h2{padding:4px 10px 5px 5px;border-bottom:1px solid #222;font-size: 12px;font-weight:bold;margin: 0;border-top:1px solid #666}
+.box-legend h2{padding:3px 10px 4px 16px;background: url(../images/sprite.png) no-repeat;background-position:5px 6px;border-bottom:1px solid #222;font-size: 12px;font-weight:bold;margin: 0;border-top:1px solid #666}
 #container2-bg{background: #fff;height: 330px;margin:10px 0 0 0;border-radius: 3px}
 #container2-bg-image{background:transparent;height: 330px;margin:10px 0 0 0;border-radius: 3px}
 #container2-legend{margin:0;padding: 10px;background:#222;border:1px solid #333;border-top:1px solid #555;border-radius: 2px;color:#777;text-shadow:1px 1px 1px #000;overflow: hidden;}
@@ -73,7 +74,7 @@ h2{font-size: 16px;margin: 10px 0px;font-weight: bold;}
 .app-text-container{width: 119px !important;margin-left: 10px}
 .app-text-mini{width: 35px !important;float:left;text-align: center}
 .app-text-none{border:0;background: transparent;color:#999;width: 100px;margin: 0;padding: 0;font-size: 12px}
-.app-button{display:inline-block;border: 1px solid #222;border-top:1px solid #444;border-radius: 2px;color:#999;font-size:12px;text-shadow:1px 1px 1px #000;padding:2px 10px;margin:0;cursor:pointer;background:#222;
+.app-button{display:inline-block;border: 1px solid #111;border-top:1px solid #222;border-radius: 3px;color:#999;font-size:12px;text-shadow:1px 1px 1px #000;padding:0px 10px 2px 10px;margin:0;cursor:pointer;background:#222;
 	/* Safari 4-5, Chrome 1-9 */
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, 
 	   from(#222222), to(#555555));

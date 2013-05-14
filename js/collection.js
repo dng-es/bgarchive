@@ -20,8 +20,8 @@ $(document).ready(function(){
         bg_width = pattern.attr("data-w"),
         bg_height = pattern.attr("data-h");
     $("#container2-bg-image").css("background-image","url(data/patterns/"+bg_name+")");
-    $("#app-download").attr("href","?page=home&d=" + bg_name + "&e=" + bg_id);
-    $("#app-download").attr("data-id",bg_id);
+    $("#app-download").attr("href","?page=home&d=" + bg_name + "&e=" + bg_id)
+                      .attr("data-id",bg_id);
     $("#file-size").html(bg_size);
     $("#file-format").html(bg_format);
     $("#file-downs").html(bg_downloads);

@@ -19,6 +19,7 @@ function ini_page_body ($site_config){
 ?>
     <div class="container scroll-pane" id="container1"> 
       <?php changeBox();?>
+      <?php opacityBox();?>
       <?php chooseBox();?>
       <?php uploadBox();?>
       <?php searchBox();?>
@@ -35,7 +36,7 @@ function ini_page_body ($site_config){
 function uploadBox(){
   ?>
 <div class="box">
-        <div class="box-legend"><h2>Upload your pattern</h2></div>
+        <div class="box-legend"><h2>Background upload</h2></div>
         <div class="box-content">
           <p>Allowed formats: GIF, PNG, JPG</p>
           <form method="post" action="" name="upload-form" id="upload-form" method="post" enctype="multipart/form-data">
@@ -50,7 +51,7 @@ function uploadBox(){
 function searchBox(){
   ?>
 <div class="box">
-        <div class="box-legend"><h2>Search background by tag</h2></div>
+        <div class="box-legend"><h2>Background search</h2></div>
         <div class="box-content">
           <form method="post" action="" name="search-form" id="search-form">
             <input type="text" name="search-text" id="search-text" class="app-text" value="<?php echo $_POST['search-text'];?>" />
@@ -65,10 +66,12 @@ function searchBox(){
 function chooseBox(){
   ?>
       <div class="box">
-        <div class="box-legend"><h2>Choose background image</h2></div>
+        <div class="box-legend"><h2>Background image</h2></div>
         <div class="box-content">
           <div id="container1-files">
-            <div id="bg-loading"><img src="images/loading.gif" border="0" /></div>
+            <div id="bg-loading"><img id="bg-loading-img" src="images/loading.gif" border="0" />
+              <p>Loading patterns ...</p>
+            </div>
           </div>
         </div>
       </div>
@@ -78,7 +81,7 @@ function chooseBox(){
 function tagsBox(){
   ?>
       <div class="box">
-        <div class="box-legend"><h2>Tags</h2></div>
+        <div class="box-legend"><h2>Background tags</h2></div>
         <div class="box-content">
           <a class="tags-cloud tags-cloud1" href="#" data-f="abstract">abstract</a>
           <a class="tags-cloud tags-cloud1" href="#" data-f="animals">animals</a>
@@ -109,7 +112,7 @@ function tagsBox(){
 function changeBox(){
   ?>
       <div class="box">
-        <div class="box-legend"><h2>Background options</h2></div>
+        <div class="box-legend"><h2>Background color</h2></div>
         <div class="box-content">
           <div id="swatch-content">
             <div id="swatch" class="ui-widget-content ui-corner-all"></div>
@@ -136,9 +139,18 @@ function changeBox(){
               <input type="text" class="app-text app-text-mini" name="txt-blue" id="txt-blue" value="255" />             
             </div>  
           </div>
+        </div>
+      </div>
+  <?php
+}
 
+function opacityBox(){
+  ?>
+      <div class="box">
+        <div class="box-legend"><h2>Background opacity</h2></div>
+        <div class="box-content">
           <div class="slider-container">
-            <p>Pattern opacity:</p>
+            <p>Change pattern opacity:</p>
             <div id="slider" class="slider"></div>
             <input type="text" class="app-text app-text-mini" name="txt-opacity" id="txt-opacity" value="100" />
           </div>
@@ -146,10 +158,11 @@ function changeBox(){
       </div>
   <?php
 }
+
 function previewBox(){
   ?>
       <div class="box">
-        <div class="box-legend"><h2>Preview background</h2></div>
+        <div class="box-legend"><h2>Background preview</h2></div>
         <div class="box-content">
           <div id="container2-legend">
             <div class="container2-legend-info">
