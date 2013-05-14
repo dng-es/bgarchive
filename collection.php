@@ -25,9 +25,10 @@ function chooseBox(){
         
          
         echo '<LINK rel="stylesheet" type="text/css" href="css/styles.css" />
-              <script language="JavaScript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-              <script language="JavaScript" src="js/bgs.js"></script>
+              <script language="JavaScript" src="js/jquery.js"></script>
+              <script language="JavaScript" src="js/collection.js"></script>
               <script type="text/javascript" src="js/jquery.dacolorpicker.min.js"></script>
+              <script language="JavaScript" src="js/jquery-ui-1.10.2.custom.min.js"></script>
               <!-- scroll -->
               <link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
               <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
@@ -46,6 +47,9 @@ function chooseBox(){
         foreach($elements as $element):
           $ext = strtoupper(substr($element['bg_file'], strrpos($element['bg_file'],".") + 1));
           $peso_archivo = filesize(PATH_PATTERNS.$element['bg_file']);
+          $size = GetImageSize(PATH_PATTERNS.$element['bg_file']);
+          $bg_width=$size[0];
+          $bg_height=$size[1]; 
           echo '<a href="#" id="'.sha1($element['id_bg']).'" 
                             data-n="'.$element['bg_file'].'" 
                             data-s="'.FormatFileSize($peso_archivo).'" 
@@ -53,6 +57,8 @@ function chooseBox(){
                             data-t="'.$element['bg_tags'].'" 
                             data-d="'.$element['bg_downloads'].'" 
                             data-l="'.$element['bg_license'].'" 
+                            data-w="'.$bg_width.'" 
+                            data-h="'.$bg_height.'" 
                             style="background-image:url('.PATH_PATTERNS.$element['bg_file'].')" class="bg-pattern"></a>';
         endforeach;
         echo '</div>';

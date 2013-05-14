@@ -17,9 +17,10 @@ function ini_page_header ($site_config) {?>
 <?php }
 function ini_page_body ($site_config){
 ?>
-    <div class="container" id="container1"> 
+    <div class="container scroll-pane" id="container1"> 
       <?php changeBox();?>
       <?php chooseBox();?>
+      <?php uploadBox();?>
       <?php searchBox();?>
       <?php tagsBox();?>
     </div>
@@ -31,16 +32,30 @@ function ini_page_body ($site_config){
 <?php
 }
 
+function uploadBox(){
+  ?>
+<div class="box">
+        <div class="box-legend"><h2>Upload your pattern</h2></div>
+        <div class="box-content">
+          <p>Allowed formats: GIF, PNG, JPG</p>
+          <form method="post" action="" name="upload-form" id="upload-form" method="post" enctype="multipart/form-data">
+            <input type="text" name="upload-text" id="upload-text" class="app-text" value="" />
+            <input type="button" id="upload-button" class="app-button" value="upload file">
+          </form>
+        </div>
+      </div>
+  <?php
+}
+
 function searchBox(){
   ?>
 <div class="box">
         <div class="box-legend"><h2>Search background by tag</h2></div>
         <div class="box-content">
-
           <form method="post" action="" name="search-form" id="search-form">
             <input type="text" name="search-text" id="search-text" class="app-text" value="<?php echo $_POST['search-text'];?>" />
             <input type="button" id="search-button" class="app-button" value="search file">
-            <a href="#" id="search-reset">reset filters</a>
+            <p><a href="#" id="search-reset">reset filters</a></p>
           </form>
         </div>
       </div>
@@ -94,13 +109,39 @@ function tagsBox(){
 function changeBox(){
   ?>
       <div class="box">
-        <div class="box-legend"><h2>Change background color</h2></div>
+        <div class="box-legend"><h2>Background options</h2></div>
         <div class="box-content">
-          <div class="app-text-container">
-            <input type="text" id="bg-def" class="app-text-none" value="#ffffff" />
-            <img src="images/cpicker.png" name="cpicker-bg" id="cpicker-bg" class="cpicker">
+          <div id="swatch-content">
+            <div id="swatch" class="ui-widget-content ui-corner-all"></div>
+            <input type="button" id="bg-change" class="app-button" value="apply">
           </div>
-          <input type="button" id="bg-change" class="app-button" value="change">
+          <div id="colors-content">
+            <p>Hexadecimal:</p>
+            <div class="app-text-container">
+              <input type="text" id="bg-def" class="app-text-none" value="#000000" />
+              <img src="images/cpicker.png" name="cpicker-bg" id="cpicker-bg" class="cpicker">
+            </div>
+            
+            <p>RGB:</p>
+            <div class="slider-container">
+              <div id="red" class="slider"></div>
+              <input type="text" class="app-text app-text-mini" name="txt-red" id="txt-red" value="255" />
+            </div>
+            <div class="slider-container">
+              <div id="green" class="slider"></div>
+              <input type="text" class="app-text app-text-mini" name="txt-green" id="txt-green" value="255" />
+            </div>
+            <div class="slider-container">
+              <div id="blue" class="slider"></div>  
+              <input type="text" class="app-text app-text-mini" name="txt-blue" id="txt-blue" value="255" />             
+            </div>  
+          </div>
+
+          <div class="slider-container">
+            <p>Pattern opacity:</p>
+            <div id="slider" class="slider"></div>
+            <input type="text" class="app-text app-text-mini" name="txt-opacity" id="txt-opacity" value="100" />
+          </div>
         </div>
       </div>
   <?php
@@ -111,14 +152,26 @@ function previewBox(){
         <div class="box-legend"><h2>Preview background</h2></div>
         <div class="box-content">
           <div id="container2-legend">
-            <a data-id="0" class='app-button' id='app-download' href='#'>download file</a> (<span id="file-size">0 kb</span>)<br />
-            Format: <span id="file-format">format</span><br />
-            Downloads: <span id="file-downs">0</span><br />
-            License: <span id="file-license">0</span><br />
-            Tags: <span id="file-tags">0</span>
+            <div class="container2-legend-info">
+              <span class="container2-legend-info-title">Downloads:</span> <span id="file-downs">0</span><br />
+              <span class="container2-legend-info-title">Format:</span> <span id="file-format">format</span><br />
+              <span class="container2-legend-info-title">Size:</span> <span id="file-size">0 kb</span>      
+            </div>
+            <div class="container2-legend-info">
+              <span class="container2-legend-info-title">Width:</span> <span id="file-width">0</span> px<br />
+              <span class="container2-legend-info-title">Height:</span> <span id="file-height">0</span> px
+            </div>
+            <div class="container2-legend-info container2-legend-info2">
+              <span class="container2-legend-info-title">License:</span> <span id="file-license">0</span><br />
+              <span class="container2-legend-info-title">Tags:</span> <span id="file-tags">0</span>
+            </div>
+            <div class="container2-legend-info container2-legend-info2">
+              <a data-id="0" class='app-button' id='app-download' href='#'>download original file</a>
+              <a data-id="1" class='app-button' id='app-download-custom' href='#'>download custom file</a>
+            </div>            
+            <div id="bg-color-change" class="ui-corner-all"></div>
           </div>
-          <div id="bg-color-change"></div>
-          <div id="container2-bg"></div>
+          <div id="container2-bg"><div id="container2-bg-image"></div></div>
         </div>
       </div>
   <?php

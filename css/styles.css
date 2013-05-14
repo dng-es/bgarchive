@@ -7,7 +7,6 @@
          url('fonts/questrial-regular-webfont.svg#questrialregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 /*RESET CSS*/
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,
@@ -24,94 +23,128 @@ table {border-collapse: collapse;border-spacing:0}
 body{margin: 0;font-family: 'questrialregular',Arial, Verdana;background: #111;color: #fff;font-size:12px}
 a{color:#999;text-decoration: none}
 header{background: #000;color:#fff;padding: 10px 20px;height: 40px;position: relative;top: 0;left: 0;width: 100%;border-bottom:1px solid #555;}
-footer{background: #111;color:#FB873A;padding: 5px 2%;position: fixed;bottom: 0;left: 0;width: 96%;text-align: right;border-top:1px solid #222;text-shadow:1px 1px 1px #333;}
+footer{background: #111;color:#fff;padding: 5px 2% 5px 5px;position: fixed;bottom: 0;left: 0;width: 96%;text-align: right;border-top:1px solid #222;}
+#footer-left{float:left;}
+#footer-right{float:right;color:#f0f0f0;}
 h1{font-size: 28px;margin: 10px 0px;font-weight: bold;text-shadow:2px 2px 2px #000;color:#777;}
 h1 span {font-size: 12px;color:#999;}
 h2{font-size: 16px;margin: 10px 0px;font-weight: bold;}
 #page-wrapper{padding:0;background:#222;overflow: hidden;margin: 0}
 .container{float: left;display: inline-block;margin:  0px;border-bottom: 1px solid #000}
-#container1{overflow:none;width: 280px;border-right:1px solid #222;background: #111}
-#container1-files{height: 220px;padding:0;margin:0;width: 99%;outline:none;overflow: hidden;}
-#container2-files{height: 200px;width:265px !important;outline: none}
+#container1{overflow:hidden;width: 310px;border-right:1px solid #222;background: #111 url("../images/s_bar.png") repeat-y; background-position:top right;position: relative}
+#container1 .box{width: 292px;border-right:0px solid #333;padding-right: 1px;}
+#container1-files{height: 175px;padding:0;margin:0;width: 99%;outline:none;overflow: hidden;}
+#container2{width: 60%;padding: 5px 20px 0 10px;border-left: 1px solid #000;position: relative;}
+#container2-files{height: 155px;width:272px !important;outline: none}
+.container2-legend-info{float: left;display: inline-block;width: 110px;overflow: hidden;position: relative;position: relative;}
+.container2-legend-info2{width: 300px}
+.container2-legend-info-title{color:#ccc;}
 #bg-loading{position: relative;top:90px;left:120px;}
-#container2{width: 60%;padding: 5px 20px 0 10px;border-left: 1px solid #000}
-#bg-color-change{position: absolute; top:57px;right: 20px;width: 30px;height: 30px;border: 1px solid #f0f0f0;
+#bg-color-change{position: absolute; top:20px;right: 20px;width: 30px;height: 30px; border: 1px solid #666;
 	box-shadow:0 0 20px #000;
    -webkit-box-shadow: 0 0 20px #000;
    -moz-box-shadow: 0 0 20px #000;
-	}
+}
 .box{background:#111;border: 0px solid #555;border-radius: 3px;margin:0;position: relative;}
-.box p{margin: 0 0 5px 0;color: #999}
-.box-content{padding: 5px;position: relative;}
-.box-legend{border-bottom:1px solid #000;border-top:1px solid #000;background: #555;
+.box p{margin: 5px 0 5px 0;color: #999}
+.box-content{padding: 5px;position: relative;overflow: hidden;}
+.box-legend{border-bottom:1px solid #000;border-top:1px solid #000;
 	/* Safari 4-5, Chrome 1-9 */
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, 
 	   from(#111111), to(#444444));
 	/* Safari 5.1+, Chrome 10+ */
-	background: -webkit-linear-gradient(top, #444444, #111111);
+	background-image: -webkit-linear-gradient(top, #444444, #111111);
 	/* Firefox 3.6+ */
-	background: -moz-linear-gradient(top, #444444, #111111);
+	background-image: -moz-linear-gradient(top, #444444, #111111);
 	/* Opera 11.10+ */
-	background: -o-linear-background(top, #444444, #111111);
+	background-image: -o-linear-gradient(top, #444444, #111111);
 	/* IE 10 */
-	background: -ms-linear-background(top, #444444, #111111);
+	background-image: -ms-linear-gradient(top, #444444, #111111);
 	/* estándar */
-	background: linear-background(top, #444444, #111111);
-	cursor:pointer;padding:0;color:#FB873A;text-shadow:2px 2px 2px #000;font-size: 14px}
-.box-legend h2{padding:4px 10px 5px 5px;border-bottom:1px solid #222;font-size: 12px;margin: 0;border-top:1px solid #666}
+	background-image: linear-gradient(top, #444444, #111111);
+	cursor:pointer;padding:0;color:#f0f0f0;text-shadow:2px 2px 2px #000;font-size: 14px}
+.box-legend h2{padding:4px 10px 5px 5px;border-bottom:1px solid #222;font-size: 12px;font-weight:bold;margin: 0;border-top:1px solid #666}
 #container2-bg{background: #fff;height: 330px;margin:10px 0 0 0;border-radius: 3px}
-#container2-legend{margin:0;padding: 10px;background:#222;border:1px solid #333;border-top:1px solid #555;border-radius: 2px;color:#777;text-shadow:1px 1px 1px #000;}
+#container2-bg-image{background:transparent;height: 330px;margin:10px 0 0 0;border-radius: 3px}
+#container2-legend{margin:0;padding: 10px;background:#222;border:1px solid #333;border-top:1px solid #555;border-radius: 2px;color:#777;text-shadow:1px 1px 1px #000;overflow: hidden;}
 .bg-pattern{display: inline-block;padding: 1px 2px;width: 30px;height:30px;margin:2px;border: 1px solid #444;background:#fff;}
 .bg-pattern-selected{border-color:#FB873A;color:#000;}
-.app-text,.app-text-container{background:#555;border: 1px solid #888;border-radius: 2px;color:#222;padding:2px 5px;font-size: 12px;margin:0 2px 0 0;width: 170px;position: relative;display: inline-block;}
-.app-text-none{border:0;background: transparent;width: 135px;margin: 0;padding: 0;font-size: 12px}
+.app-text,.app-text-container{background:#555;border: 1px solid #888;border-radius: 2px;color:#999;padding:2px 5px;font-size: 12px;margin:0 2px 0 0;width: 170px;position: relative;display: inline-block;}
+.app-text-container{width: 119px !important;margin-left: 10px}
+.app-text-mini{width: 35px !important;float:left;text-align: center}
+.app-text-none{border:0;background: transparent;color:#999;width: 100px;margin: 0;padding: 0;font-size: 12px}
 .app-button{display:inline-block;border: 1px solid #222;border-top:1px solid #444;border-radius: 2px;color:#999;font-size:12px;text-shadow:1px 1px 1px #000;padding:2px 10px;margin:0;cursor:pointer;background:#222;
 	/* Safari 4-5, Chrome 1-9 */
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, 
 	   from(#222222), to(#555555));
 	/* Safari 5.1+, Chrome 10+ */
-	background: -webkit-linear-gradient(top, #555555, #222222);
+	background-image: -webkit-linear-gradient(top, #555555, #222222);
 	/* Firefox 3.6+ */
-	background: -moz-linear-gradient(top, #555555, #222222);
+	background-image: -moz-linear-gradient(top, #555555, #222222);
 	/* Opera 11.10+ */
-	background: -o-linear-background(top, #555555, #222222);
+	background-image: -o-linear-gradient(top, #555555, #222222);
 	/* IE 10 */
-	background: -ms-linear-background(top, #555555, #222222);
+	background-image: -ms-linear-gradient(top, #555555, #222222);
 	/* estándar */
-	background: linear-background(top, #555555, #222222);}
+	background-image: linear-gradient(top, #555555, #222222);}
 .app-button:hover{
 	border-top: 1px solid #111;
 		/* Safari 4-5, Chrome 1-9 */
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, 
 	   from(#555555), to(#222222));
 	/* Safari 5.1+, Chrome 10+ */
-	background: -webkit-linear-gradient(top, #222222, #555555);
+	background-image: -webkit-linear-gradient(top, #222222, #555555);
 	/* Firefox 3.6+ */
-	background: -moz-linear-gradient(top, #222222, #555555);
+	background-image: -moz-linear-gradient(top, #222222, #555555);
 	/* Opera 11.10+ */
-	background: -o-linear-background(top, #222222, #555555);
+	background-image: -o-linear-gradient(top, #222222, #555555);
 	/* IE 10 */
-	background: -ms-linear-background(top, #222222, #555555);
+	background-image: -ms-linear-gradient(top, #222222, #555555);
 	/* estándar */
-	background: linear-background(top, #222222, #555555);}
-#app-download{margin-bottom: 10px}
+	background-image: linear-gradient(top, #222222, #555555);}
+#app-download,#app-download-custom{margin-bottom: 10px;display: inline-block;padding: 6px 10px}
 .deg01{
 	/* Safari 4-5, Chrome 1-9 */
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, 
 	   from(#F86205), to(#ffcc00));
 	/* Safari 5.1+, Chrome 10+ */
-	background: -webkit-linear-gradient(top, #ffcc00, #F86205);
+	background-image: -webkit-linear-gradient(top, #ffcc00, #F86205);
 	/* Firefox 3.6+ */
-	background: -moz-linear-gradient(top, #ffcc00, #F86205);
+	background-image: -moz-linear-gradient(top, #ffcc00, #F86205);
 	/* Opera 11.10+ */
-	background: -o-linear-background(top, #ffcc00, #F86205);
+	background-image: -o-linear-gradient(top, #ffcc00, #F86205);
 	/* IE 10 */
-	background: -ms-linear-background(top, #ffcc00, #F86205);
+	background-image: -ms-linear-gradient(top, #ffcc00, #F86205);
 	/* estándar */
-	background: linear-background(top, #ffcc00, #F86205);
+	background-image: linear-gradient(top, #ffcc00, #F86205);
 }
 #search-reset{margin-left: 0px}
-.tags-cloud {margin-right: 5px;color: #999; text-shadow:2px 2px 2px #000;}
+.slider-container{clear: both;}
+.slider{width: 120px;margin: 5px 18px 8px 10px;float:left;}
+.ui-slider-handle{outline: none}
+
+#swatch-content{float:left;width: 70px;padding: 0 0 0 10px}
+#colors-content{float:left;width: 200px}
+#swatch {
+	width: 55px;
+	height: 60px;
+	margin: 21px 0 10px 0;
+	background-image: none;
+	background-color: #ffffff;
+}
+#slider{width: 200px !important}
+#red .ui-slider-range { background: #D60000; }
+#red .ui-slider-handle { border-color: #D60000; }
+#green .ui-slider-range { background: #2DAA00; }
+#green .ui-slider-handle { border-color: #2DAA00; }
+#blue .ui-slider-range { background: #0000E2; }
+#blue .ui-slider-handle { border-color: #0000E2; }
+
+#footer-bug { color: #D60000; }
+#footer-enhacement{ color: #0089FF; }
+#footer-donation{ color: #2DAA00; }
+
+.tags-cloud {margin-right: 5px;color: #999; text-shadow:2px 2px 2px #000;outline: none;}
 .tags-cloud1{font-size: 10px}
 .tags-cloud2{font-size: 14px}
 .tags-cloud3{font-size: 18px}

@@ -6,14 +6,18 @@ if (!isset($Subject)){ $Subject=$site_config['SiteSubject'];}
 
 function PageHeader($Subject,$Key_Words){
   global $site_config, $ini_conf;
-  echo '<html lang="en">
+  echo '<!DOCTYPE HTML>
+    <html lang="en">
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <TITLE>bgArchive</TITLE>
       <LINK rel="stylesheet" type="text/css" href="css/styles.css" />
       <LINK rel="stylesheet" type="text/css" href="css/jquery.dacolorpicker.css" />
-      <script language="JavaScript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+      <LINK rel="stylesheet" type="text/css" href="css/bgarchive/jquery-ui-1.10.2.custom.min.css" />
+      <script language="JavaScript" src="js/jquery.js"></script>
+      <script language="JavaScript" src="js/jquery-ui-1.10.2.custom.min.js"></script>
+      <script type="text/javascript" src="js/jquery.numeric.js"></script>
       <script language="JavaScript" src="js/main.js"></script>
       <script type="text/javascript" src="js/jquery.dacolorpicker.min.js"></script>';
 }
