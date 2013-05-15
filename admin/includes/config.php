@@ -7,10 +7,10 @@ SiteDomain = "http://localhost/bgarchive"
 host = "localhost"
 
 ;USER BBDD
-user = "root"
+user = "bgarchive"
 
 ;PASSWORD BBDD
-pass = "AdminImagar"
+pass = "bgarchive"
 
 ;BBDD
 db = "bgarchive"
