@@ -1,12 +1,24 @@
 <?php
 
-//DOWNLOAD FILE
+//DOWNLOAD ORIGINAL FILE
 if (isset($_REQUEST['d']) and is_file(PATH_PATTERNS.$_REQUEST['d'])){
-  header ("Content-type: image/png");
+  $mimetype = mm_type(PATH_PATTERNS.$_REQUEST['d']);
+  header ("Content-type: $mimetype");
   header('Content-Disposition: attachment; filename="'.$_REQUEST['d'].'"');
   readfile(PATH_PATTERNS.$_REQUEST['d']);
   $backgrounds = new backgrounds();
   $backgrounds->downloadBackground($_REQUEST['e']);
+}
+
+//DOWNLOAD CUSTOM FILE
+if (isset($_REQUEST['dc']) and is_file(PATH_PATTERNS.$_REQUEST['dc'])){
+  $mimetype = mm_type(PATH_PATTERNS.$_REQUEST['dc']);
+  $new_bg = createBg($_REQUEST['dc']);
+  // header ("Content-type: $mimetype");
+  // header('Content-Disposition: attachment; filename="'.$new_bg.'"');
+  // readfile(PATH_PATTERNS_TEMP.$new_bg);
+  // $backgrounds = new backgrounds();
+  // $backgrounds->downloadBackground($_REQUEST['e']);
 }
 
 
@@ -78,32 +90,33 @@ function chooseBox(){
   <?php
 }
 
+function _getNumber($details) {
+  return $details['QTD_TAG'];
+}
+
 function tagsBox(){
   ?>
       <div class="box">
         <div class="box-legend"><h2>Background tags</h2></div>
         <div class="box-content">
-          <a class="tags-cloud tags-cloud1" href="#" data-f="abstract">abstract</a>
-          <a class="tags-cloud tags-cloud1" href="#" data-f="animals">animals</a>
-          <a class="tags-cloud tags-cloud5" href="#" data-f="black">black</a>
-          <a class="tags-cloud tags-cloud1" href="#" data-f="blue">blue</a>
-          <a class="tags-cloud tags-cloud3" href="#" data-f="brown">brown</a>
-          <a class="tags-cloud tags-cloud1" href="#" data-f="bubbles">bubbles</a>
-          <a class="tags-cloud tags-cloud1" href="#" data-f="celtic">celtic</a>
-          <a class="tags-cloud tags-cloud3" href="#" data-f="clothes">clothes</a>
-          <a class="tags-cloud tags-cloud2" href="#" data-f="circles">circles</a>
-          <a class="tags-cloud tags-cloud3" href="#" data-f="dots">dots</a>
-          <a class="tags-cloud tags-cloud1" href="#" data-f="flowers">flowers</a>
-          <a class="tags-cloud tags-cloud4" href="#" data-f="geometrical">geometrical</a>
-          <a class="tags-cloud tags-cloud1" href="#" data-f="grass">grass</a>
-          <a class="tags-cloud tags-cloud3" href="#" data-f="green">green</a>
-          <a class="tags-cloud tags-cloud1" href="#" data-f="grey">grey</a>
-          <a class="tags-cloud tags-cloud1" href="#" data-f="red">red</a>
-          <a class="tags-cloud tags-cloud4" href="#" data-f="squares">squares</a>
-          <a class="tags-cloud tags-cloud5" href="#" data-f="transparent">transparent</a>
-          <a class="tags-cloud tags-cloud3" href="#" data-f="white">white</a>
-          <a class="tags-cloud tags-cloud2" href="#" data-f="wood">wood</a>
-          <a class="tags-cloud tags-cloud1" href="#" data-f="yellow">yellow</a>
+          <?php
+          $backgrounds = new backgrounds();
+          $bg_tags = $backgrounds->getTagCloud();
+          $numbers = array_map('_getNumber', $bg_tags);
+          $max = max($numbers);
+
+          foreach ($bg_tags as $bg_tag):
+            $cloud_level = $bg_tag['QTD_TAG'] * 100 / $max;
+            if ($cloud_level>=80){ $cloud_class="tags-cloud5";}
+            elseif ($cloud_level>=60){ $cloud_class="tags-cloud4";}
+            elseif ($cloud_level>=40){ $cloud_class="tags-cloud3";}
+            elseif ($cloud_level>=20){ $cloud_class="tags-cloud2";}
+            else{ $cloud_class="tags-cloud1";}
+
+            echo '<a class="tags-cloud '.$cloud_class.'" href="#" data-f="'.$bg_tag['bg_tag'].'">'.
+                  $bg_tag['bg_tag'].'</a>';
+          endforeach;
+          ?>
         </div>
       </div>
   <?php

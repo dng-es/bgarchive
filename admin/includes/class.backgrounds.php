@@ -14,13 +14,54 @@ class backgrounds extends connection{
 		  $array_data[] = $element_data;
 	    }
 	    return $array_data;
-	  }   
-      public function insertBackground($bg_file,$bg_tags,$bg_license,$bg_users){
-		if ($bg_file['name']!='') { $bg_file = self::insertFile($bg_file);}
-		else {$nombre_file="";}
+	  } 
 
-	    $Sql="INSERT INTO backgrounds (bg_file,bg_tags,bg_license,bg_users) 
-			  VALUES ('".$nombre_file."','".$bg_tags."','".$bg_license."','".$bg_users."')";
+	  function getBackgroundsByTag($filter = "")  
+	  {
+		$Sql="SELECT * FROM backgrounds WHERE 
+			id_bg IN (SELECT DISTINCT(id_bg) FROM backgrounds_tags WHERE bg_tag LIKE '%".$filter."%') ";
+	    $result=connection::execute_query($Sql);
+	    $array_data = array();
+	    while ($element_data = connection::get_result($result))
+	    {  
+		  $array_data[] = $element_data;
+	    }
+	    return $array_data;
+	  } 
+
+	  function getTagCloud()  
+	  {
+		$Sql="SELECT bg_tag,COUNT(*) AS QTD_TAG
+				FROM backgrounds_tags
+				GROUP BY bg_tag
+				ORDER BY bg_tag ASC";
+	    $result=connection::execute_query($Sql);
+	    $array_data = array();
+	    while ($element_data = connection::get_result($result))
+	    {  
+		  $array_data[] = $element_data;
+	    }
+	    return $array_data;
+	  } 	  
+
+	  function getTagsById($id_bg)  
+	  {
+		$Sql="SELECT bg_tag FROM backgrounds_tags WHERE id_bg = ".$id_bg;
+	    $result=connection::execute_query($Sql);
+	    $array_data = array();
+	    while ($element_data = connection::get_result($result))
+	    {  
+		  $array_data[] = $element_data;
+	    }
+	    return $array_data;
+	  } 	  	
+	      
+      public function insertBackground($bg_file,$bg_license,$bg_users){
+		if ($bg_file['name']!='') { $bg_file = self::insertFile($bg_file);}
+		else {$bg_file="";}
+
+	    $Sql="INSERT INTO backgrounds (bg_file,bg_license,bg_users) 
+			  VALUES ('".$bg_file."','".$bg_license."','".$bg_users."')";
 		if (connection::execute_query($Sql)){ return true;}
 		else { return false;}
       }	  

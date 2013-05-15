@@ -13,7 +13,8 @@ function chooseBox(){
           //search option
           $tag=$_REQUEST['ftag'];
           $filter = " AND bg_tags like '%".$tag."%'  ORDER BY bg_date DESC ";
-          $elements = $backgrounds->getBackgrounds($filter);
+          //$elements = $backgrounds->getBackgrounds($filter);
+          $elements = $backgrounds->getBackgroundsByTag($tag);
           $num_bg=count($elements);
         }        
         else{
@@ -50,11 +51,17 @@ function chooseBox(){
           $size = GetImageSize(PATH_PATTERNS.$element['bg_file']);
           $bg_width=$size[0];
           $bg_height=$size[1]; 
+          $bg_tag = $backgrounds->getTagsById($element['id_bg']);
+          $bg_tag_bg="";
+          foreach ($bg_tag as $bg_tag_elem):
+            $bg_tag_bg .= $bg_tag_elem['bg_tag'].", ";
+          endforeach;
+          $bg_tag_bg  = substr($bg_tag_bg, 0, strlen($bg_tag_bg)-2);
           echo '<a href="#" id="'.sha1($element['id_bg']).'" 
                             data-n="'.$element['bg_file'].'" 
                             data-s="'.FormatFileSize($peso_archivo).'" 
                             data-f="'.$ext.'" 
-                            data-t="'.$element['bg_tags'].'" 
+                            data-t="'.$bg_tag_bg.'" 
                             data-d="'.$element['bg_downloads'].'" 
                             data-l="'.$element['bg_license'].'" 
                             data-w="'.$bg_width.'" 

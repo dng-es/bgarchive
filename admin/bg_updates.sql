@@ -1,2 +1,0 @@
-INSERT INTO `bgarchive`.`backgrounds` (`bg_file`, `bg_tags`, `bg_users`) VALUES ('0000212.png', 'grey, clothes', 'daweed');
-INSERT INTO `bgarchive`.`backgrounds` (`bg_file`, `bg_tags`, `bg_users`) VALUES ('0000213.png', 'black', 'daweed'); 

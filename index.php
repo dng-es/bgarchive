@@ -8,6 +8,7 @@ include_once("admin/includes/class.configuracion.php");
 $configuracion = new configuracion();
 $site_config=$configuracion->getConfiguracion("");
 
+include_once("includes/createbg.php");
 include_once("admin/includes/class.backgrounds.php");
 include_once("includes/header.php");
 include_once("includes/class.footers.php");

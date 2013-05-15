@@ -67,6 +67,9 @@
 	top: 0;
 	left: 0;
 	cursor: pointer;
+	border-right:1px solid #333;
+	border-top:1px solid #333;
+	border-bottom:1px solid #333;
 }
 
 .jspHorizontalBar .jspTrack,
@@ -122,6 +125,8 @@
 
 .jspArrowUp {
 	border-bottom: 1px solid #000;
+	border-right:1px solid #333;
+	border-top:1px solid #333;
 	background: url(../images/up.gif) !important;
 	background-color: #222 !important;
 	background-repeat: no-repeat !important;
@@ -131,6 +136,8 @@
 
 .jspArrowDown {
 	border-top: 1px solid #000;	
+	border-right:1px solid #333;
+	border-bottom:1px solid #333;
 	background: url(../images/down.gif) !important;
 	background-color: #222 !important;
 	background-repeat: no-repeat !important;

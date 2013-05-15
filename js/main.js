@@ -41,11 +41,19 @@ $(document).ready(function(){
   });
 
   $("#app-download").click(function(){
+    addDownload($(this));  
+  });
+
+  $("#app-download-custom").click(function(){
+    addDownload($(this));  
+  });  
+
+  function addDownload(trigger){
     var cont = parseInt($("#file-downs").html()) + 1,
-        elem = '#' + $(this).attr("data-id");
+        elem = '#' + trigger.attr("data-id");
     $(elem).attr("data-d",cont);
     $("#file-downs").html(cont);  
-  });
+  }  
   
   /*search functions*/
   $("#search-button").click(function(){
@@ -59,8 +67,8 @@ $(document).ready(function(){
   }); 
 
   function launchSearch(){
-    if (jQuery.trim($("#search-text").attr("value"))!=""){
-      var f_tag = jQuery.trim($("#search-text").attr("value"));
+    if (jQuery.trim($("#search-text").val())!=""){
+      var f_tag = jQuery.trim($("#search-text").val());
       loadBackgrounds(f_tag);
       return false;
     }

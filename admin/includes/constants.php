@@ -4,6 +4,7 @@ $ini_conf = parse_ini_file("admin/includes/config.php");
 
 //PATHS
 define(PATH_PATTERNS,"./data/patterns/");
+define(PATH_PATTERNS_TEMP,"./data/patterns/temp/");
 
 //LANGUAGE
 @setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
