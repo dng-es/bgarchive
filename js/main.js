@@ -33,20 +33,16 @@ $(document).ready(function(){
         $("#txt-red").val(colores.r);
         $("#txt-green").val(colores.g);
         $("#txt-blue").val(colores.b);
-        changeTxtColor($("#txt-red"),"red");
-        changeTxtColor($("#txt-green"),"green");
-        changeTxtColor($("#txt-blue"),"blue");
+        changeTxtColor($("#txt-red"));
+        changeTxtColor($("#txt-green"));
+        changeTxtColor($("#txt-blue"));
         slideChangeColor();        
       } 
   });
 
-  $("#app-download").click(function(){
+  $("#app-download, #app-download-custom").click(function(){
     addDownload($(this));  
   });
-
-  $("#app-download-custom").click(function(){
-    addDownload($(this));  
-  });  
 
   function addDownload(trigger){
     var cont = parseInt($("#file-downs").html()) + 1,
@@ -130,29 +126,24 @@ $(document).ready(function(){
         
     red = red > 0 ? parseInt((red*255)/100) : 0;
     green = green > 0 ? parseInt((green*255)/100) : 0;
-    blue = blue > 0 ? parseInt((blue*255)/100) : 0;     
-
-    $("#txt-red").val(red);
-    $("#txt-green").val(green);
-    $("#txt-blue").val(blue);
+    blue = blue > 0 ? parseInt((blue*255)/100) : 0;
 
     var hex = hexFromRGB( red, green, blue );
     $( "#swatch" ).css( "background-color", "#" + hex );
     $("#bg-def").attr("value","#" + hex )
   }  
 
-  function changeTxtColor(elem,cColor){
-        var slidevalue = getColorSlide(elem);
+  function changeTxtColor(elem){
+        var slidevalue = getColorSlide(elem),
+            cColor = elem.attr("data-color");;
         $( "#" + cColor ).slider( "value", slidevalue );
         $( "#" + cColor + " .ui-slider-range" ).css({"width" : slidevalue + "%"});
   }
 
   function getColorSlide(elem){
       var txtValue = elem.val();
-      if (txtValue=='') {txtValue = 0;}
-      if (txtValue>255) {txtValue = 255;}
-
-      txtValue = parseInt(txtValue);
+      txtValue = txtValue == '' ? 0 : parseInt(txtValue);
+      txtValue = txtValue > 255 ? 255 : txtValue
       elem.val(txtValue);
       return txtValue<=0 ? 0 : ((txtValue * 100)/255);
   }
@@ -186,18 +177,8 @@ $(document).ready(function(){
     return hex.join( "" ).toUpperCase();
   }   
 
-  $("#txt-red").keyup(function(){
-        changeTxtColor($(this),"red");
-        slideChangeColor();
-  });
-
-  $("#txt-green").keyup(function(){
-        changeTxtColor($(this),"green");
-        slideChangeColor();
-  });
-
-  $("#txt-blue").keyup(function(){
-        changeTxtColor($(this),"blue");
+  $("#txt-red, #txt-green, #txt-blue").keyup(function(){
+        changeTxtColor($(this));
         slideChangeColor();
   });
 });
