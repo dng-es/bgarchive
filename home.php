@@ -141,15 +141,15 @@ function changeBox(){
             <p>RGB:</p>
             <div class="slider-container">
               <div id="red" class="slider"></div>
-              <input type="text" class="app-text app-text-mini" name="txt-red" id="txt-red" value="255" />
+              <input type="text" class="app-text app-text-mini" name="txt-red" id="txt-red" data-color="red" value="255" />
             </div>
             <div class="slider-container">
               <div id="green" class="slider"></div>
-              <input type="text" class="app-text app-text-mini" name="txt-green" id="txt-green" value="255" />
+              <input type="text" class="app-text app-text-mini" name="txt-green" id="txt-green" data-color="green" value="255" />
             </div>
             <div class="slider-container">
               <div id="blue" class="slider"></div>  
-              <input type="text" class="app-text app-text-mini" name="txt-blue" id="txt-blue" value="255" />             
+              <input type="text" class="app-text app-text-mini" name="txt-blue" id="txt-blue" data-color="blue" value="255" />             
             </div>  
           </div>
         </div>
