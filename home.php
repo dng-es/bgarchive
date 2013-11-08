@@ -13,7 +13,8 @@ if (isset($_REQUEST['d']) and is_file(PATH_PATTERNS.$_REQUEST['d'])){
 //DOWNLOAD CUSTOM FILE
 if (isset($_REQUEST['dc']) and is_file(PATH_PATTERNS.$_REQUEST['dc'])){
   $mimetype = mm_type(PATH_PATTERNS.$_REQUEST['dc']);
-  $new_bg = createBg($_REQUEST['dc']);
+  //echo $_REQUEST['dc']." - ".$_REQUEST['r']." - ".$_REQUEST['g']." - ".$_REQUEST['b']." - ".$_REQUEST['w']." - ".$_REQUEST['h']." - ".$_REQUEST['o'];
+  $new_bg = createBg($_REQUEST['dc'],$_REQUEST['r'],$_REQUEST['g'],$_REQUEST['b'],$_REQUEST['w'],$_REQUEST['h'],$_REQUEST['o']);
   // header ("Content-type: $mimetype");
   // header('Content-Disposition: attachment; filename="'.$new_bg.'"');
   // readfile(PATH_PATTERNS_TEMP.$new_bg);
@@ -49,7 +50,7 @@ function uploadBox(){
   ?>
 <div class="box">
         <div class="box-legend"><h2>Background upload</h2></div>
-        <div class="box-content">
+        <div class="box-content" id="box-content-upload">
           <p>Allowed formats: GIF, PNG, JPG</p>
           <form method="post" action="" name="upload-form" id="upload-form" method="post" enctype="multipart/form-data">
             <input type="text" name="upload-text" id="upload-text" class="app-text" value="" />
@@ -64,7 +65,7 @@ function searchBox(){
   ?>
 <div class="box">
         <div class="box-legend"><h2>Background search</h2></div>
-        <div class="box-content">
+        <div class="box-content" id="box-content-search">
           <form method="post" action="" name="search-form" id="search-form">
             <input type="text" name="search-text" id="search-text" class="app-text" value="<?php echo $_POST['search-text'];?>" />
             <input type="button" id="search-button" class="app-button" value="search file">
@@ -135,21 +136,20 @@ function changeBox(){
             <p>Hexadecimal:</p>
             <div class="app-text-container">
               <input type="text" id="bg-def" class="app-text-none" value="#000000" />
-              <img src="images/cpicker.png" name="cpicker-bg" id="cpicker-bg" class="cpicker">
             </div>
             
             <p>RGB:</p>
             <div class="slider-container">
               <div id="red" class="slider"></div>
-              <input type="text" class="app-text app-text-mini" name="txt-red" id="txt-red" data-color="red" value="255" />
+              <input type="text" class="app-text app-text-mini" name="txt-red" data-color="red" id="txt-red" value="255" />
             </div>
             <div class="slider-container">
               <div id="green" class="slider"></div>
-              <input type="text" class="app-text app-text-mini" name="txt-green" id="txt-green" data-color="green" value="255" />
+              <input type="text" class="app-text app-text-mini" name="txt-green" data-color="green" id="txt-green" value="255" />
             </div>
             <div class="slider-container">
               <div id="blue" class="slider"></div>  
-              <input type="text" class="app-text app-text-mini" name="txt-blue" id="txt-blue" data-color="blue" value="255" />             
+              <input type="text" class="app-text app-text-mini" name="txt-blue" data-color="blue" id="txt-blue" value="255" />             
             </div>  
           </div>
         </div>
@@ -191,11 +191,11 @@ function previewBox(){
               <span class="container2-legend-info-title">License:</span> <span id="file-license">0</span><br />
               <span class="container2-legend-info-title">Tags:</span> <span id="file-tags">0</span>
             </div>
-            <div class="container2-legend-info container2-legend-info2">
-              <a data-id="0" class='app-button' id='app-download' href='#'>download original file</a>
-              <a data-id="1" class='app-button' id='app-download-custom' href='#'>download custom file</a>
+            <div class="container2-legend-info container2-legend-info3">
+              <a data-id="0" class='app-button2' id='app-download' href='#'><span class="icon-kub-download icon-app-button2"></span> download original file</a>
+              <a data-id="1" class='app-button2' id='app-download-custom' href='#'><span class="icon-kub-download icon-app-button2"></span> download custom file</a>
             </div>            
-            <div id="bg-color-change" class="ui-corner-all"></div>
+            <div id="bg-color-change" class="ui-corner-all" data-r="0" data-g="0" data-b="0"></div>
           </div>
           <div id="container2-bg"><div id="container2-bg-image"></div></div>
         </div>
