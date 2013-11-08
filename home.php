@@ -186,6 +186,8 @@ function previewBox(){
             <div class="container2-legend-info">
               <span class="container2-legend-info-title">Width:</span> <span id="file-width">0</span> px<br />
               <span class="container2-legend-info-title">Height:</span> <span id="file-height">0</span> px
+              <span id="file-name" style="display:none"></span>
+              <span id="file-id" style="display:none"></span>
             </div>
             <div class="container2-legend-info container2-legend-info2">
               <span class="container2-legend-info-title">License:</span> <span id="file-license">0</span><br />
@@ -193,7 +195,7 @@ function previewBox(){
             </div>
             <div class="container2-legend-info container2-legend-info3">
               <a data-id="0" class='app-button2' id='app-download' href='#'><span class="icon-kub-download icon-app-button2"></span> download original file</a>
-              <a data-id="1" class='app-button2' id='app-download-custom' href='#'><span class="icon-kub-download icon-app-button2"></span> download custom file</a>
+              <a data-id="1" class='app-button2' id='app-download-custom' target="_blank" href='#'><span class="icon-kub-download icon-app-button2"></span> download custom file</a>
             </div>            
             <div id="bg-color-change" class="ui-corner-all" data-r="0" data-g="0" data-b="0"></div>
           </div>

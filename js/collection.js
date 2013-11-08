@@ -1,11 +1,13 @@
 $(document).ready(function(){
-  $( "#red, #green, #blue" ).slider();
+  $( "#red, #green, #blue").slider();
   bgImageChange($(".bg-pattern:first"));
 
   $(".bg-pattern").click(function(e){
     e.preventDefault();
     bgImageChange($(this));
   });
+
+
   
   function bgImageChange(pattern){
     $(".bg-pattern").removeClass("bg-pattern-selected");
@@ -22,8 +24,7 @@ $(document).ready(function(){
     $("#container2-bg-image").css("background-image","url(data/patterns/"+bg_name+")");
     $("#app-download").attr("href","?page=home&d=" + bg_name + "&e=" + bg_id)
                       .attr("data-id",bg_id);
-    $("#app-download-custom").attr("href","?page=home&dc=" + bg_name + "&e=" + bg_id + "&w=" + bg_width + "&h=" + bg_height)
-                      .attr("data-id",bg_id);                      
+    $("#app-download-custom").attr("data-id",bg_id);                      
     $("#file-size").html(bg_size);
     $("#file-format").html(bg_format);
     $("#file-downs").html(bg_downloads);
@@ -31,5 +32,7 @@ $(document).ready(function(){
     $("#file-tags").html(bg_tags);
     $("#file-width").html(bg_width);
     $("#file-height").html(bg_height);
+    $("#file-name").html(bg_name);
+    $("#file-id").html(bg_id);
   }
 });

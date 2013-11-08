@@ -24,18 +24,8 @@ $(document).ready(function(){
       $("#container2").css({"height" : wheight - 29 + "px", "width" : wwidth - 380});      
     },
     bgColorChange : function(){
-      var bgColor = $("#bg-def").val(),
-          link_bg = $("#app-download-custom").attr("href"),
-          bg_red = 0, bg_green = 0, bg_blue = 0, bg_opacity = 1, l_new = "#";
-      $("#bg-color-change, #container2-bg").css("background-color",bgColor);
-      if (link_bg!="#"){
-          bg_red = $("#txt-red").val();
-          bg_green = $("#txt-green").val();
-          bg_blue = $("#txt-blue").val();
-          bg_opacity = $("#txt-opacity").val()/100;
-          l_new = link_bg + "&r=" + bg_red + "&g=" + bg_green + "&b=" + bg_blue + "&o=" + bg_opacity;
-          $("#app-download-custom").attr("href",l_new);
-      }     
+      var bgColor = $("#bg-def").val();
+      $("#bg-color-change, #container2-bg").css("background-color",bgColor);     
     },
     changeTxtColor : function(elem){
         var slidevalue = this.getColorSlide(elem),
@@ -43,12 +33,24 @@ $(document).ready(function(){
         $( "#" + cColor ).slider( "value", slidevalue );
         $( "#" + cColor + " .ui-slider-range" ).css({"width" : slidevalue + "%"});      
     },
+    changeTxtOpacity : function(){
+        var slidevalue = this.getOpacitySlide();
+        $( "#slider" ).slider( "value", slidevalue );
+        $( "#slider .ui-slider-range" ).css({"width" : slidevalue + "%"});      
+    },
     getColorSlide : function(elem){
       var txtValue = elem.val();
       txtValue = txtValue == '' ? 0 : parseInt(txtValue);
       txtValue = txtValue > 255 ? 255 : txtValue
       elem.val(txtValue);
       return txtValue<=0 ? 0 : ((txtValue * 100)/255);      
+    },
+    getOpacitySlide : function(){
+      var txtValue = $("#txt-opacity").val();
+      txtValue = txtValue == '' ? 0 : parseInt(txtValue);
+      txtValue = txtValue > 100 ? 100 : txtValue
+      $("#txt-opacity").val(txtValue);
+      return txtValue<=0 ? 0 : ((txtValue * 100)/100);      
     },
     hexToRgb : function(hex){
       var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -110,9 +112,14 @@ $(document).ready(function(){
   $("#txt-red, #txt-green, #txt-blue").keyup(function(e){
     if (e.which == 13) {
       bgarchive.changeTxtColor($(this));
-      slideChangeColor();
     }
   });
+
+  $("#txt-opacity").keyup(function(e){
+    if (e.which == 13) {
+      bgarchive.changeTxtOpacity();
+    }
+  });  
 
   $("#app-download, #app-download-custom").click(function(){
     bgarchive.addDownload($(this));  
@@ -148,12 +155,20 @@ $(document).ready(function(){
     max: 100,
     min: 0,
     range: "min",
-    slide: function(event, ui){
-      $("#container2-bg-image").css({ opacity: (ui.value)/100 });
-      $("#txt-opacity").attr("value",(ui.value));
+    value: 100,
+    elem: this,
+    slide: function(elem,ui){
+      slideChangeOpacity(elem,ui.value)
     }
   });
   $( "#slider" ).slider("value", 100 ); 
+
+  function slideChangeOpacity(event, uivalue){
+    $("#container2-bg-image").css({ opacity: (uivalue)/100 });
+    if (event!==undefined){
+      $("#txt-opacity").val(uivalue);
+    }
+  }
 
   $( "#red, #green, #blue" ).slider({
     orientation: "horizontal",
@@ -186,8 +201,21 @@ $(document).ready(function(){
     $( "#swatch" ).css( "background-color", "#" + hex );
     $("#bg-def").attr("value","#" + hex );
     if (event!==undefined){
-      $("#txt-" + event.target.id).attr("value", uivalue);
+      $("#txt-" + event.target.id).val(uivalue);
     }
-    console.log(uivalue);
   }   
+
+  $("#app-download-custom").click(function(e){
+    e.preventDefault();
+    var bg_name = $("#file-name").html(),
+        bg_id = $("#file-id").html(),
+        bg_width = $("#file-width").html(),
+        bg_height = $("#file-height").html(),
+        bg_red = $("#txt-red").val(),
+        bg_green = $("#txt-green").val(),
+        bg_blue = $("#txt-blue").val(),
+        bg_opacity = $("#txt-opacity").val()/100,
+        url = "?page=home&dc=" + bg_name + "&e=" + bg_id + "&w=" + bg_width + "&h=" + bg_height + "&r=" + bg_red + "&g=" + bg_green + "&b=" + bg_blue + "&o=" + bg_opacity;
+    window.open(url);
+  });
 });
