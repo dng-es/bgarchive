@@ -1,0 +1,65 @@
+@charset "UTF-8";
+@font-face
+{ 
+	font-family: "pictonic";
+	src: url("fonts/pictonic/pictonic.eot");
+	src: url("fonts/pictonic/pictonic.eot?#iefix") format("eot");
+	src: url('fonts/pictonic/pictonic.eot?#iefix') format('embedded-opentype'),
+		url("fonts/pictonic/pictonic.woff") format("woff"),
+		url("fonts/pictonic/pictonic.ttf") format("truetype"),
+		url("fonts/pictonic/pictonic.svg") format("svg");
+	font-weight: normal; font-style: normal;
+}
+ 
+[class^="icon-"], [class*=" icon-"] {
+	font-family:"pictonic";
+	font-weight: normal; font-style: normal;
+	-webkit-font-smoothing:  subpixel-antialiased;
+	-moz-font-smoothing:  subpixel-antialiased;
+	font-smoothing:  subpixel-antialiased;
+	line-height:1em;
+}
+ 
+a[class^="icon-"], a[class*=" icon-"], span[class^="icon-"], span[class*=" icon-"], small[class^="icon-"], small[class*=" icon-"] {
+	display: -moz-inline-stack;
+	display:inline-block;
+	zoom: 1;
+	*display: inline;
+}
+  
+.icon-kub-speech-01:before { content:""; } 
+.icon-kub-recycle:before { content:""; } 
+.icon-kub-avatar-01:before { content:""; } 
+.icon-kub-home:before { content:""; } 
+.icon-kub-avatar-02:before { content:""; } 
+.icon-kub-info:before { content:""; } 
+.icon-kub-locked:before { content:""; } 
+.icon-kub-time:before { content:""; } 
+.icon-kub-rate-01:before { content:""; } 
+.icon-kub-rate-02:before { content:""; } 
+.icon-kub-link:before { content:""; } 
+.icon-kub-remove:before { content:""; } 
+.icon-kub-approve:before { content:""; } 
+.icon-kub-warning:before { content:""; } 
+.icon-kub-search:before { content:""; } 
+.icon-kub-trash:before { content:""; } 
+.icon-kub-tablet:before { content:""; } 
+.icon-kub-cog:before { content:""; } 
+.icon-kub-speech-02:before { content:""; } 
+.icon-kub-document:before { content:""; } 
+.icon-kub-like-01:before { content:""; } 
+.icon-kub-like-02:before { content:""; } 
+.icon-kub-cart:before { content:""; } 
+.icon-kub-download:before { content:""; } 
+.icon-kub-upload:before { content:""; } 
+.icon-kub-calendar:before { content:""; } 
+.icon-kub-edit:before { content:""; } 
+.icon-kub-tag:before { content:""; } 
+.icon-kub-help:before { content:""; } 
+.icon-kub-calculator:before { content:""; } 
+.icon-kub-mail:before { content:""; } 
+.icon-kub-arw-right:before { content:""; } 
+.icon-kub-arw-left:before { content:""; } 
+.icon-kub-arw-up:before { content:""; } 
+.icon-kub-arw-down:before { content:""; } 
+.icon-kub-mobile:before { content:""; }

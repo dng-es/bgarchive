@@ -37,7 +37,8 @@ h2{font-size: 16px;margin: 10px 0px;font-weight: bold;}
 #container2{width: 60%;padding: 5px 20px 0 10px;border-left: 1px solid #000;position: relative;}
 #container2-files{height: 120px;width:272px !important;outline: none}
 .container2-legend-info{float: left;display: inline-block;width: 110px;overflow: hidden;position: relative;position: relative;}
-.container2-legend-info2{width: 300px}
+.container2-legend-info2{width: 250px}
+.container2-legend-info3{width: 350px}
 .container2-legend-info-title{color:#ccc;}
 #bg-loading{position: relative;top:60px;left:90px;}
 #bg-loading-img{margin: 0 0 0 30px}
@@ -64,13 +65,13 @@ h2{font-size: 16px;margin: 10px 0px;font-weight: bold;}
 	/* estándar */
 	background-image: linear-gradient(top, #444444, #111111);
 	cursor:pointer;padding:0;color:#f0f0f0;text-shadow:2px 2px 2px #000;font-size: 14px}
-.box-legend h2{padding:3px 10px 4px 16px;background: url(../images/sprite.png) no-repeat;background-position:5px 6px;border-bottom:1px solid #222;font-size: 12px;font-weight:bold;margin: 0;border-top:1px solid #666}
+.box-legend h2{padding:5px 10px 6px 16px;background: url(../images/sprite.png) no-repeat;background-position:5px 8px;border-bottom:1px solid #222;color:#b5ae8d;font-size: 14px;font-weight:normal;margin: 0;border-top:1px solid #666}
 #container2-bg{background: #fff;height: 330px;margin:10px 0 0 0;border-radius: 3px}
 #container2-bg-image{background:transparent;height: 330px;margin:10px 0 0 0;border-radius: 3px}
 #container2-legend{margin:0;padding: 10px;background:#222;border:1px solid #333;border-top:1px solid #555;border-radius: 2px;color:#777;text-shadow:1px 1px 1px #000;overflow: hidden;}
 .bg-pattern{display: inline-block;padding: 1px 2px;width: 30px;height:30px;margin:2px;border: 1px solid #444;background:#fff;}
 .bg-pattern-selected{border-color:#FB873A;color:#000;}
-.app-text,.app-text-container{background:#555;border: 1px solid #888;border-radius: 2px;color:#999;padding:2px 5px;font-size: 12px;margin:0 2px 0 0;width: 170px;position: relative;display: inline-block;}
+.app-text,.app-text-container{background:#555;border: 1px solid #888;border-radius: 2px;color:#999;padding:2px 0px 2px 2px;font-size: 12px;margin:0 2px 0 0;width: 170px;position: relative;display: inline-block;}
 .app-text-container{width: 119px !important;margin-left: 10px}
 .app-text-mini{width: 35px !important;float:left;text-align: center}
 .app-text-none{border:0;background: transparent;color:#999;width: 100px;margin: 0;padding: 0;font-size: 12px}
@@ -103,6 +104,38 @@ h2{font-size: 16px;margin: 10px 0px;font-weight: bold;}
 	background-image: -ms-linear-gradient(top, #222222, #555555);
 	/* estándar */
 	background-image: linear-gradient(top, #222222, #555555);}
+
+.app-button2{display:inline-block;border: 1px solid #111;border-top:1px solid #222;border-radius: 3px;color:#927904;font-size:14px;text-shadow:1px 1px 1px #fff;padding:0px 10px 2px 10px;margin:0;cursor:pointer;background:#222;
+	/* Safari 4-5, Chrome 1-9 */
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+	   from(#faeb6c), to(#e1bb07));
+	/* Safari 5.1+, Chrome 10+ */
+	background-image: -webkit-linear-gradient(top, #e1bb07, #faeb6c);
+	/* Firefox 3.6+ */
+	background-image: -moz-linear-gradient(top, #e1bb07, #faeb6c);
+	/* Opera 11.10+ */
+	background-image: -o-linear-gradient(top, #e1bb07, #faeb6c);
+	/* IE 10 */
+	background-image: -ms-linear-gradient(top, #e1bb07, #faeb6c);
+	/* estándar */
+	background-image: linear-gradient(top, #e1bb07, #faeb6c);}
+.app-button2:hover{
+	border-top: 1px solid #111;
+		/* Safari 4-5, Chrome 1-9 */
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+	   from(#e1bb07), to(#faeb6c));
+	/* Safari 5.1+, Chrome 10+ */
+	background-image: -webkit-linear-gradient(top, #faeb6c, #e1bb07);
+	/* Firefox 3.6+ */
+	background-image: -moz-linear-gradient(top, #faeb6c, #e1bb07);
+	/* Opera 11.10+ */
+	background-image: -o-linear-gradient(top, #faeb6c, #e1bb07);
+	/* IE 10 */
+	background-image: -ms-linear-gradient(top, #faeb6c, #e1bb07);
+	/* estándar */
+	background-image: linear-gradient(top, #faeb6c, #e1bb07);}
+
+.icon-app-button2{color:#b89d21;}
 #app-download,#app-download-custom{margin-bottom: 10px;display: inline-block;padding: 6px 10px}
 .deg01{
 	/* Safari 4-5, Chrome 1-9 */

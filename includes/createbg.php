@@ -1,46 +1,38 @@
 <?php
-function createBg($fileName){ 
-$im = imagecreatetruecolor ( 140, 140 );
-$bg = imagecolorallocate ( $im, 255, 0, 0 );
-imagefill ( $im, 0, 0, $bg );
-imagejpeg($im, PATH_PATTERNS_TEMP.'bg_custom.jpg');
+function createBg($fileName,$bg_red = 0,$bg_green = 0,$bg_blue = 0,$bg_width = 140,$bg_height = 140,$bg_opacity = 1){ 
+    //generar el fondo, aplicar propiedades y guardar el archivo
+    $backgroundName = time().'background.png';
+    $im = imagecreatetruecolor ( $bg_width, $bg_height );
+    $bg = imagecolorallocate ( $im, $bg_red, $bg_green, $bg_blue );
+    imagefill ( $im, 0, 0, $bg );
+    imagepng($im, PATH_PATTERNS_TEMP.$backgroundName);
+    $img_dest = imagecreatefrompng(PATH_PATTERNS_TEMP.$backgroundName);
 
-$imagen_logo = new Imagick(PATH_PATTERNS.$fileName);
-/* Set the opacity */
-$imagen_logo->setImageOpacity(0.7);
+    //generar el patron, aplicar propiedades y guardar el archivo
+    $patternName = time().'pattern.png';
+    $img_pattern = new Imagick(PATH_PATTERNS.$fileName);
+    //$img_pattern->setCompressionQuality(100); 
+    $img_pattern->setImageFormat("png");
+    $img_pattern->setImageOpacity($bg_opacity);
+    $img_pattern->writeImage(PATH_PATTERNS_TEMP.$patternName);
 
-// Esta imagen es el logo que se pondra.
-$imagen_logo = imagecreatefrompng(PATH_PATTERNS.$fileName);
-// Defino ancho, alto del logo.
-$ancho_logo = imagesx($imagen_logo);
-$alto_logo = imagesy($imagen_logo);
+    //Esta imagen es el patron que se pondra.
+    $img_pattern_final = imagecreatefrompng(PATH_PATTERNS_TEMP.$patternName);
+    $width_pattern = imagesx($img_pattern_final);
+    $height_pattern = imagesy($img_pattern_final);
 
-// Creo la imagen a cual se le pondra el logo.
-$imagen_dest = imagecreatefromjpeg(PATH_PATTERNS_TEMP."bg_custom.jpg");
-// Defino ancho, alto de la imagen que se le colocara el logo.
-$ancho_dest = imagesx($imagen_logo);
-$alto_dest = imagesy($imagen_logo);
+    //Sobre pongo el patron a la imagen de fondo.
+    imagecopyresized($img_dest,$img_pattern_final,0,0,0,0,$width_pattern,$height_pattern,$width_pattern,$height_pattern);
 
-// Defino la posicion donde se mostrara el logo dejando
-// 10 pixeles de espacio. Se mostrara en la parte
-// inferior derecho.
-$ancho_muestra = ($ancho_dest - $ancho_logo) - 10;
-$alto_muestra = ($alto_dest - $alto_logo) - 10;
+    //Envio la cabecera para mostrar la imagen.
+    header("Content-type: image/png");
 
-//Envio la cabecera para mostrar la imagen.
-header("Content-type: image/jpeg");
+    // Muestro la imagen.
+    imagepng($img_dest);
 
-// Sobre pongo el logo a la imagen.
-imagecopyresized($imagen_dest,$imagen_logo,$ancho_muestra,$alto_muestra,0,0,$ancho_logo,$alto_logo,$ancho_logo,$alto_logo);
-
-// Guardo la imagen que ya tiene el logo.
-imagejpeg($imagen_dest,"prueba.jpg",100);
-// Muestro la imagen.
-imagejpeg($imagen_dest,"",100);
-
-// Destruyo las imagenes.
-//imagedestroy($imagen_dest);
-//imagedestroy($imagen_logo); 
+    // Destruyo las imagenes.
+    //imagedestroy($img_dest);
+    //imagedestroy($img_pattern_final); 
 }
 
 function mm_type($filename) {
