@@ -25,6 +25,7 @@ $(document).ready(function(){
     },
     bgColorChange : function(){
       var bgColor = $("#bg-def").val();
+      $("#transparent").attr({"checked": false});
       $("#bg-color-change, #container2-bg").css("background-color",bgColor);
       $("#app-download-custom").attr({"data-r":$("#txt-red").val(), 
                                       "data-g":$("#txt-green").val(),
@@ -222,4 +223,11 @@ $(document).ready(function(){
         url = "?page=home&dc=" + bg_name + "&e=" + bg_id + "&w=" + bg_width + "&h=" + bg_height + "&r=" + bg_red + "&g=" + bg_green + "&b=" + bg_blue + "&o=" + bg_opacity;
     window.open(url);
   });
+
+  $("#transparent").click(function(){
+    var marcado = this.checked; 
+       if ( marcado === true ){
+        $("#container2-bg").css({"background":"transparent"});
+       }   
+   })
 });

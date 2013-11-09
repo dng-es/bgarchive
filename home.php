@@ -128,6 +128,7 @@ function changeBox(){
       <div class="box">
         <div class="box-legend"><h2>Background color</h2></div>
         <div class="box-content">
+          <input type="checkbox" id="transparent" /> transparent
           <div id="swatch-content">
             <div id="swatch" class="ui-widget-content ui-corner-all"></div>
             <input type="button" id="bg-change" class="app-button" value="apply">
@@ -197,7 +198,9 @@ function previewBox(){
             </div>            
             <div id="bg-color-change" class="ui-corner-all" data-r="0" data-g="0" data-b="0"></div>
           </div>
-          <div id="container2-bg"><div id="container2-bg-image"></div></div>
+          <div id="container2-bg-transparent">
+            <div id="container2-bg"><div id="container2-bg-image"></div></div>
+          </div>
         </div>
       </div>
   <?php

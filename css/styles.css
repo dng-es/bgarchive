@@ -33,9 +33,9 @@ h2{font-size: 16px;margin: 10px 0px;font-weight: bold;}
 .container{float: left;display: inline-block;margin:  0px;border-bottom: 1px solid #000}
 #container1{overflow:hidden;width: 310px;border-right:1px solid #222;background: #222 url("../images/s_bar.png") repeat-y; background-position:top right;position: relative}
 #container1 .box{width: 292px;border-right:0px solid #333;padding-right: 1px;}
-#container1-files{height: 140px;padding:0;margin:0;width: 99%;outline:none;overflow: hidden;}
+#container1-files{height: 240px;padding:0;margin:0;width: 99%;outline:none;overflow: hidden;}
 #container2{width: 60%;padding: 5px 20px 0 10px;border-left: 1px solid #000;position: relative;}
-#container2-files{height: 120px;width:272px !important;outline: none}
+#container2-files{height: 220px;width:272px !important;outline: none}
 .container2-legend-info{float: left;display: inline-block;width: 110px;overflow: hidden;position: relative;position: relative;}
 .container2-legend-info2{width: 250px}
 .container2-legend-info3{width: 350px}
@@ -66,8 +66,9 @@ h2{font-size: 16px;margin: 10px 0px;font-weight: bold;}
 	background-image: linear-gradient(top, #444444, #111111);
 	cursor:pointer;padding:0;color:#f0f0f0;text-shadow:2px 2px 2px #000;font-size: 14px}
 .box-legend h2{padding:5px 10px 6px 16px;background: url(../images/sprite.png) no-repeat;background-position:5px 8px;border-bottom:1px solid #222;color:#b5ae8d;font-size: 14px;font-weight:normal;margin: 0;border-top:1px solid #666}
-#container2-bg{background: #fff;height: 330px;margin:10px 0 0 0;border-radius: 3px}
-#container2-bg-image{background:transparent;height: 330px;margin:10px 0 0 0;border-radius: 3px}
+#container2-bg-transparent{background-image: url(../images/transparent.png);overflow: hidden;margin:10px 0 0 0}
+#container2-bg{height: 330px;margin:0}
+#container2-bg-image{background:transparent;height: 330px;margin:0}
 #container2-legend{margin:0;padding: 10px;background:#222;border:1px solid #333;border-top:1px solid #555;border-radius: 2px;color:#777;text-shadow:1px 1px 1px #000;overflow: hidden;}
 .bg-pattern{display: inline-block;padding: 1px 2px;width: 30px;height:30px;margin:2px;border: 1px solid #444;background:#fff;}
 .bg-pattern-selected{border-color:#FB873A;color:#000;}
