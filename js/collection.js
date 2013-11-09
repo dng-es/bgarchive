@@ -24,7 +24,7 @@ $(document).ready(function(){
     $("#container2-bg-image").css("background-image","url(data/patterns/"+bg_name+")");
     $("#app-download").attr("href","?page=home&d=" + bg_name + "&e=" + bg_id)
                       .attr("data-id",bg_id);
-    $("#app-download-custom").attr("data-id",bg_id);                      
+    $("#app-download-custom").attr({"data-id":bg_id,"data-w":bg_width,"data-h":bg_height,"data-n":bg_name});                      
     $("#file-size").html(bg_size);
     $("#file-format").html(bg_format);
     $("#file-downs").html(bg_downloads);
@@ -32,7 +32,5 @@ $(document).ready(function(){
     $("#file-tags").html(bg_tags);
     $("#file-width").html(bg_width);
     $("#file-height").html(bg_height);
-    $("#file-name").html(bg_name);
-    $("#file-id").html(bg_id);
   }
 });

@@ -31,9 +31,9 @@ function ini_page_header ($site_config) {?>
 function ini_page_body ($site_config){
 ?>
     <div class="container scroll-pane" id="container1"> 
-      <?php changeBox();?>
-      <?php opacityBox();?>
+      <?php changeBox();?>     
       <?php chooseBox();?>
+      <?php opacityBox();?>
       <?php uploadBox();?>
       <?php searchBox();?>
       <?php tagsBox();?>
@@ -49,7 +49,7 @@ function ini_page_body ($site_config){
 function uploadBox(){
   ?>
 <div class="box">
-        <div class="box-legend"><h2>Background upload</h2></div>
+        <div class="box-legend"><h2>Background image upload</h2></div>
         <div class="box-content" id="box-content-upload">
           <p>Allowed formats: GIF, PNG, JPG</p>
           <form method="post" action="" name="upload-form" id="upload-form" method="post" enctype="multipart/form-data">
@@ -64,7 +64,7 @@ function uploadBox(){
 function searchBox(){
   ?>
 <div class="box">
-        <div class="box-legend"><h2>Background search</h2></div>
+        <div class="box-legend"><h2>Background image search</h2></div>
         <div class="box-content" id="box-content-search">
           <form method="post" action="" name="search-form" id="search-form">
             <input type="text" name="search-text" id="search-text" class="app-text" value="<?php echo $_POST['search-text'];?>" />
@@ -98,8 +98,8 @@ function _getNumber($details) {
 function tagsBox(){
   ?>
       <div class="box">
-        <div class="box-legend"><h2>Background tags</h2></div>
-        <div class="box-content">
+        <div class="box-legend"><h2>Background image tags</h2></div>
+        <div class="box-content" id="box-content-tags">
           <?php
           $backgrounds = new backgrounds();
           $bg_tags = $backgrounds->getTagCloud();
@@ -160,7 +160,7 @@ function changeBox(){
 function opacityBox(){
   ?>
       <div class="box">
-        <div class="box-legend"><h2>Background opacity</h2></div>
+        <div class="box-legend"><h2>Background image opacity</h2></div>
         <div class="box-content">
           <div class="slider-container">
             <p>Change pattern opacity:</p>
@@ -186,8 +186,6 @@ function previewBox(){
             <div class="container2-legend-info">
               <span class="container2-legend-info-title">Width:</span> <span id="file-width">0</span> px<br />
               <span class="container2-legend-info-title">Height:</span> <span id="file-height">0</span> px
-              <span id="file-name" style="display:none"></span>
-              <span id="file-id" style="display:none"></span>
             </div>
             <div class="container2-legend-info container2-legend-info2">
               <span class="container2-legend-info-title">License:</span> <span id="file-license">0</span><br />
@@ -195,7 +193,7 @@ function previewBox(){
             </div>
             <div class="container2-legend-info container2-legend-info3">
               <a data-id="0" class='app-button2' id='app-download' href='#'><span class="icon-kub-download icon-app-button2"></span> download original file</a>
-              <a data-id="1" class='app-button2' id='app-download-custom' target="_blank" href='#'><span class="icon-kub-download icon-app-button2"></span> download custom file</a>
+              <a data-id="1" data-r="0" data-g="0" data-b="0" data-o="100" class='app-button2' id='app-download-custom' target="_blank" href='#'><span class="icon-kub-download icon-app-button2"></span> download custom file</a>
             </div>            
             <div id="bg-color-change" class="ui-corner-all" data-r="0" data-g="0" data-b="0"></div>
           </div>

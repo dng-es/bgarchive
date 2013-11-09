@@ -5,7 +5,7 @@ $(document).ready(function(){
     init : function(){
       $("#bg-def").dacolorpicker();
       $("#txt-red, #txt-green, #txt-blue, #txt-opacity").numeric();
-      $("#box-content-search, #box-content-upload").hide(); 
+      $("#box-content-search, #box-content-upload, #box-content-tags").hide(); 
 
       this.resizePanels();
       this.loadBackgrounds();
@@ -25,7 +25,11 @@ $(document).ready(function(){
     },
     bgColorChange : function(){
       var bgColor = $("#bg-def").val();
-      $("#bg-color-change, #container2-bg").css("background-color",bgColor);     
+      $("#bg-color-change, #container2-bg").css("background-color",bgColor);
+      $("#app-download-custom").attr({"data-r":$("#txt-red").val(), 
+                                      "data-g":$("#txt-green").val(),
+                                      "data-b":$("#txt-blue").val(),
+                                      "data-o":$("#txt-opacity").val()});     
     },
     changeTxtColor : function(elem){
         var slidevalue = this.getColorSlide(elem),
@@ -207,14 +211,14 @@ $(document).ready(function(){
 
   $("#app-download-custom").click(function(e){
     e.preventDefault();
-    var bg_name = $("#file-name").html(),
-        bg_id = $("#file-id").html(),
-        bg_width = $("#file-width").html(),
-        bg_height = $("#file-height").html(),
-        bg_red = $("#txt-red").val(),
-        bg_green = $("#txt-green").val(),
-        bg_blue = $("#txt-blue").val(),
-        bg_opacity = $("#txt-opacity").val()/100,
+    var bg_name = $(this).attr("data-n"),
+        bg_id = $(this).attr("data-id"),
+        bg_width = $(this).attr("data-w"),
+        bg_height = $(this).attr("data-h"),
+        bg_red = $(this).attr("data-r"),
+        bg_green = $(this).attr("data-g"),
+        bg_blue = $(this).attr("data-b"),
+        bg_opacity = $(this).attr("data-o")/100,
         url = "?page=home&dc=" + bg_name + "&e=" + bg_id + "&w=" + bg_width + "&h=" + bg_height + "&r=" + bg_red + "&g=" + bg_green + "&b=" + bg_blue + "&o=" + bg_opacity;
     window.open(url);
   });
