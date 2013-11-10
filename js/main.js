@@ -2,14 +2,21 @@ $(document).ready(function(){
 
   var bgarchive = {
     findTag : "",
+    chkTransparent : $("#transparent"),
+    txtRed : $("#txt-red"),
+    txtGreen : $("#txt-green"),
+    txtBlue : $("#txt-blue"),
+    txtOpacity : $("#txt-opacity"),
+    inputPicker : $("#bg-def"),
     init : function(){
-      $("#bg-def").dacolorpicker();
+      this.inputPicker.dacolorpicker();
       $("#txt-red, #txt-green, #txt-blue, #txt-opacity").numeric();
       $("#box-content-search, #box-content-upload, #box-content-tags").hide(); 
 
       this.resizePanels();
       this.loadBackgrounds();
       this.bgColorChange();
+      this.bindEvents();
     },
     loadBackgrounds : function(){
       $("#bg-loading").show();
@@ -24,19 +31,19 @@ $(document).ready(function(){
       $("#container2").css({"height" : wheight - 29 + "px", "width" : wwidth - 380});      
     },
     bgColorChange : function(){
-      var bgColor = $("#bg-def").val();
-      $("#transparent").attr({"checked": false});
+      var bgColor = this.inputPicker.val();
+      this.chkTransparent.attr({"checked": false});
       $("#bg-color-change, #container2-bg").css("background-color",bgColor);
-      $("#app-download-custom").attr({"data-r":$("#txt-red").val(), 
-                                      "data-g":$("#txt-green").val(),
-                                      "data-b":$("#txt-blue").val(),
-                                      "data-o":$("#txt-opacity").val()});     
+      $("#app-download-custom").attr({"data-r" : this.txtRed.val(), 
+                                      "data-g" : this.txtGreen.val(),
+                                      "data-b" : this.txtBlue.val(),
+                                      "data-o" : this.txtOpacity.val()});     
     },
     changeTxtColor : function(elem){
         var slidevalue = this.getColorSlide(elem),
             cColor = elem.attr("data-color");
-        $( "#" + cColor ).slider( "value", slidevalue );
-        $( "#" + cColor + " .ui-slider-range" ).css({"width" : slidevalue + "%"});      
+        $( "#" + cColor ).slider( "value", slidevalue ).slide;
+        $( "#" + cColor + " .ui-slider-range" ).css({"width" : slidevalue + "%"}); 
     },
     changeTxtOpacity : function(){
         var slidevalue = this.getOpacitySlide();
@@ -51,10 +58,10 @@ $(document).ready(function(){
       return txtValue<=0 ? 0 : ((txtValue * 100)/255);      
     },
     getOpacitySlide : function(){
-      var txtValue = $("#txt-opacity").val();
+      var txtValue = this.txtOpacity.val();
       txtValue = txtValue == '' ? 0 : parseInt(txtValue);
       txtValue = txtValue > 100 ? 100 : txtValue
-      $("#txt-opacity").val(txtValue);
+      this.txtOpacity.val(txtValue);
       return txtValue<=0 ? 0 : ((txtValue * 100)/100);      
     },
     hexToRgb : function(hex){
@@ -79,8 +86,61 @@ $(document).ready(function(){
           elem = '#' + trigger.attr("data-id");
       $(elem).attr("data-d",cont);
       $("#file-downs").html(cont);       
-    }
+    },
+    bindEvents : function(){
 
+      this.chkTransparent.click(function(){
+        if ( this.checked === true ){
+          $("#container2-bg").css({"background":"transparent"});
+         }   
+      });
+
+      this.txtOpacity.keyup(function(e){
+        if (e.which == 13) {
+          bgarchive.changeTxtOpacity();
+        }
+      });      
+
+      $("#bg-change").click(function(e){
+        bgarchive.bgColorChange();
+      });  
+
+      this.inputPicker.keypress(function(e) {    
+        if (e.which == 13) {
+            var colores = bgarchive.hexToRgb($(this).val());
+            bgarchive.txtRed.val(colores.r);
+            bgarchive.txtGreen.val(colores.g);
+            bgarchive.txtBlue.val(colores.b);
+            bgarchive.changeTxtColor(bgarchive.txtRed);
+            bgarchive.changeTxtColor(bgarchive.txtGreen);
+            bgarchive.changeTxtColor(bgarchive.txtBlue);
+            slideChangeColor();        
+          } 
+      });  
+
+      /*search events*/
+      $("#search-button").click(function(){
+        bgarchive.launchSearch();
+      });
+
+      $("#search-text").keypress(function(e) {    
+        if (e.which == 13) { 
+          e.preventDefault();
+          bgarchive.launchSearch();} 
+      }); 
+
+      $(".tags-cloud").click(function(e){
+        e.preventDefault();
+        bgarchive.findTag = $(this).attr("data-f");
+        bgarchive.loadBackgrounds();    
+      });
+
+      $("#search-reset").click(function(e){
+        e.preventDefault();
+        bgarchive.findTag = "";
+        bgarchive.loadBackgrounds();   
+      });
+    }
   }
 
   bgarchive.init();
@@ -96,62 +156,16 @@ $(document).ready(function(){
     });
   });  
 
-  $("#bg-change").click(function(e){
-    bgarchive.bgColorChange();
-  });  
-
-  $("#bg-def").keypress(function(e) {    
-    if (e.which == 13) { 
-        e.preventDefault();
-        var colores = bgarchive.hexToRgb($(this).val());
-        $("#txt-red").val(colores.r);
-        $("#txt-green").val(colores.g);
-        $("#txt-blue").val(colores.b);
-        bgarchive.changeTxtColor($("#txt-red"));
-        bgarchive.changeTxtColor($("#txt-green"));
-        bgarchive.changeTxtColor($("#txt-blue"));
-        slideChangeColor();        
-      } 
-  });
-
   $("#txt-red, #txt-green, #txt-blue").keyup(function(e){
     if (e.which == 13) {
       bgarchive.changeTxtColor($(this));
-    }
-  });
-
-  $("#txt-opacity").keyup(function(e){
-    if (e.which == 13) {
-      bgarchive.changeTxtOpacity();
+      slideChangeColor();
     }
   });  
 
   $("#app-download, #app-download-custom").click(function(){
     bgarchive.addDownload($(this));  
   });   
-  
-  /*search functions*/
-  $("#search-button").click(function(){
-    bgarchive.launchSearch();
-  });
-
-  $("#search-text").keypress(function(e) {    
-    if (e.which == 13) { 
-      e.preventDefault();
-      bgarchive.launchSearch();} 
-  }); 
-
-  $(".tags-cloud").click(function(e){
-    e.preventDefault();
-    bgarchive.findTag = $(this).attr("data-f");
-    bgarchive.loadBackgrounds();    
-  });
-
-  $("#search-reset").click(function(e){
-    e.preventDefault();
-    bgarchive.findTag = "";
-    bgarchive.loadBackgrounds();   
-  });
 
   /*sliders*/
   $( "#slider" ).slider({
@@ -210,6 +224,7 @@ $(document).ready(function(){
       $("#txt-" + event.target.id).val(uivalue);
     }
   }   
+   
 
   $("#app-download-custom").click(function(e){
     e.preventDefault();
@@ -224,11 +239,4 @@ $(document).ready(function(){
         url = "?page=home&dc=" + bg_name + "&e=" + bg_id + "&w=" + bg_width + "&h=" + bg_height + "&r=" + bg_red + "&g=" + bg_green + "&b=" + bg_blue + "&o=" + bg_opacity;
     window.open(url);
   });
-
-  $("#transparent").click(function(){
-    var marcado = this.checked; 
-       if ( marcado === true ){
-        $("#container2-bg").css({"background":"transparent"});
-       }   
-   })
 });
