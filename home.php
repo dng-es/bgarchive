@@ -39,8 +39,13 @@ function ini_page_body ($site_config){
       <?php tagsBox();?>
     </div>
     <div class="container" id="container2">
-      <h1>bgarchive
-        <span>Choose a pattern, change the background color and download the file!.</span></h1>
+      <h1>bgarchive</h1>
+      <ul>
+        <li>{ Step1 } : Choose a pattern, or upload one.</li>
+        <li>{ Step2 } : Change the background.</li>
+        <li>{ Step3 } : Change pattern opacity.</li>
+        <li>{ Step4 } : Choose download original file or custom file!.</li>
+      </ul>
       <?php previewBox();?>
     </div>
 <?php
@@ -49,7 +54,7 @@ function ini_page_body ($site_config){
 function uploadBox(){
   ?>
 <div class="box">
-        <div class="box-legend"><h2>Background image upload</h2></div>
+        <div class="box-legend"><h2>Background pattern upload</h2></div>
         <div class="box-content" id="box-content-upload">
           <p>Allowed formats: GIF, PNG, JPG</p>
           <form method="post" action="" name="upload-form" id="upload-form" method="post" enctype="multipart/form-data">
@@ -64,7 +69,7 @@ function uploadBox(){
 function searchBox(){
   ?>
 <div class="box">
-        <div class="box-legend"><h2>Background image search</h2></div>
+        <div class="box-legend"><h2>Background pattern search</h2></div>
         <div class="box-content" id="box-content-search">
           <form method="post" action="" name="search-form" id="search-form">
             <input type="text" name="search-text" id="search-text" class="app-text" value="<?php echo $_POST['search-text'];?>" />
@@ -79,7 +84,7 @@ function searchBox(){
 function chooseBox(){
   ?>
       <div class="box">
-        <div class="box-legend"><h2>Background image</h2></div>
+        <div class="box-legend"><h2>Background pattern</h2></div>
         <div class="box-content">
           <div id="container1-files">
             <div id="bg-loading"><img id="bg-loading-img" src="images/loading.gif" border="0" />
@@ -98,7 +103,7 @@ function _getNumber($details) {
 function tagsBox(){
   ?>
       <div class="box">
-        <div class="box-legend"><h2>Background image tags</h2></div>
+        <div class="box-legend"><h2>Background pattern tags</h2></div>
         <div class="box-content" id="box-content-tags">
           <?php
           $backgrounds = new backgrounds();
@@ -128,7 +133,6 @@ function changeBox(){
       <div class="box">
         <div class="box-legend"><h2>Background color</h2></div>
         <div class="box-content">
-          <input type="checkbox" id="transparent" /> transparent
           <div id="swatch-content">
             <div id="swatch" class="ui-widget-content ui-corner-all"></div>
             <input type="button" id="bg-change" class="app-button" value="apply">
@@ -151,7 +155,9 @@ function changeBox(){
             <div class="slider-container">
               <div id="blue" class="slider"></div>  
               <input type="text" class="app-text app-text-mini" name="txt-blue" data-color="blue" id="txt-blue" value="255" />             
-            </div>  
+            </div>
+            <p style="clear:both"><input type="checkbox" name="transparent" id="transparent" /> 
+            <label for="transparent">Transparent</label></p>  
           </div>
         </div>
       </div>
@@ -161,7 +167,7 @@ function changeBox(){
 function opacityBox(){
   ?>
       <div class="box">
-        <div class="box-legend"><h2>Background image opacity</h2></div>
+        <div class="box-legend"><h2>Background pattern opacity</h2></div>
         <div class="box-content">
           <div class="slider-container">
             <p>Change pattern opacity:</p>
@@ -175,7 +181,7 @@ function opacityBox(){
 
 function previewBox(){
   ?>
-      <div class="box">
+      <div class="box box-center">
         <div class="box-legend"><h2>Background preview</h2></div>
         <div class="box-content">
           <div id="container2-legend">

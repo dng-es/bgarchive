@@ -172,6 +172,7 @@ $(document).ready(function(){
     $("#container2-bg-image").css({ opacity: (uivalue)/100 });
     if (event!==undefined){
       $("#txt-opacity").val(uivalue);
+      $("#app-download-custom").attr("data-o",uivalue);
     }
   }
 

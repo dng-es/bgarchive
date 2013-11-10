@@ -14,10 +14,12 @@ function PageHeader($Subject,$Key_Words){
       <TITLE>bgArchive</TITLE>
       <LINK rel="shortcut icon" href="favicon.ico">
       <link rel="icon" type="image/ico"  href="favicon.ico" > 
+      <link href="http://fonts.googleapis.com/css?family=Holtwood+One+SC|Playfair+Display+SC" rel="stylesheet" type="text/css">
       <LINK rel="stylesheet" type="text/css" href="css/styles.css" />
       <LINK rel="stylesheet" type="text/css" href="css/jquery.dacolorpicker.css" />
       <LINK rel="stylesheet" type="text/css" href="css/bgarchive/jquery-ui-1.10.2.custom.min.css" />
       <LINK rel="stylesheet" href="css/pictonic.css">
+      
       <script language="JavaScript" src="js/jquery.js"></script>
       <script language="JavaScript" src="js/jquery-ui-1.10.2.custom.min.js"></script>
       <script type="text/javascript" src="js/jquery.numeric.js"></script>
