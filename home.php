@@ -18,8 +18,8 @@ if (isset($_REQUEST['dc']) and is_file(PATH_PATTERNS.$_REQUEST['dc'])){
   // header ("Content-type: $mimetype");
   // header('Content-Disposition: attachment; filename="'.$new_bg.'"');
   // readfile(PATH_PATTERNS_TEMP.$new_bg);
-  // $backgrounds = new backgrounds();
-  // $backgrounds->downloadBackground($_REQUEST['e']);
+  $backgrounds = new backgrounds();
+  $backgrounds->downloadBackground($_REQUEST['e']);
 }
 
 
