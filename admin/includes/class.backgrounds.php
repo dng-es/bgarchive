@@ -19,7 +19,7 @@ class backgrounds extends connection{
 	  function getBackgroundsByTag($filter = "")  
 	  {
 		$Sql="SELECT * FROM backgrounds WHERE 
-			id_bg IN (SELECT DISTINCT(id_bg) FROM backgrounds_tags WHERE bg_tag LIKE '%".$filter."%') ";
+			id_bg IN (SELECT DISTINCT(id_bg) FROM backgrounds_tags WHERE 1=1 ".$filter.") ";
 	    $result=connection::execute_query($Sql);
 	    $array_data = array();
 	    while ($element_data = connection::get_result($result))

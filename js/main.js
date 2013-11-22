@@ -18,6 +18,7 @@ $(document).ready(function(){
       this.bgColorChange();
       this.bindEvents();
     },
+    //method: ajax background patterns load
     loadBackgrounds : function(){
       $("#bg-loading").show();
       $("#container1-files").load("collection.php",{"ftag":this.findTag},function(){
@@ -140,15 +141,19 @@ $(document).ready(function(){
         bgarchive.findTag = "";
         bgarchive.loadBackgrounds();   
       });
+
+      window.onresize = function() {
+        bgarchive.resizePanels();
+      }
+
+      
     }
   }
 
   bgarchive.init();
 
 
-  $(window).resize(function() {
-    bgarchive.resizePanels();
-  });
+
 
   $(".box-legend").click(function(){
     $(this).next(".box-content").slideToggle(function(){

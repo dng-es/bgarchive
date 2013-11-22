@@ -12,9 +12,14 @@ function chooseBox(){
         if (isset($_REQUEST['ftag']) and trim($_REQUEST['ftag'])!=""){
           //search option
           $tag=$_REQUEST['ftag'];
-          $filter = " AND bg_tags like '%".$tag."%'  ORDER BY bg_date DESC ";
+          $tags = explode(",", $tag);
+          $filter = "";
+          foreach ($tags as $tags_elem):
+            $filter .= " AND bg_tag like '%".$tags_elem."%'  ";
+          endforeach;
+          
           //$elements = $backgrounds->getBackgrounds($filter);
-          $elements = $backgrounds->getBackgroundsByTag($tag);
+          $elements = $backgrounds->getBackgroundsByTag($filter);
           $num_bg=count($elements);
         }        
         else{
