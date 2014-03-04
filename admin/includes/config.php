@@ -7,10 +7,10 @@ SiteDomain = "http://localhost/bgarchive"
 host = "localhost"
 
 ;USER BBDD
-user = "bgarchive"
+user = "comunidad"
 
 ;PASSWORD BBDD
-pass = "bgarchive"
+pass = "comunidad"
 
 ;BBDD
 db = "bgarchive"
